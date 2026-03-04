@@ -1,0 +1,1046 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin-top: 70px;
+}
+
+/* ============================================
+   NAVBAR
+============================================ */
+
+.navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26,0,0,0.98) 0%, rgba(45,0,0,0.98) 50%, rgba(26,0,0,0.98) 100%);
+    border-bottom: 2px solid #4a0000;
+    box-shadow: 0 5px 20px rgba(139,0,0,0.6), inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+.navbar-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.logo-text {
+    text-decoration: none;
+    font-family: 'Metal Mania', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(255,0,0,0.6);
+    animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    0%   { filter: drop-shadow(0 0 8px #ff0000); }
+    100% { filter: drop-shadow(0 0 18px #ff0000); }
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0; padding: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 20px;
+    color: #cccccc;
+    text-decoration: none;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255,0,0,0.8);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before, .nav-link.active::before { width: 100%; }
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle span {
+    width: 30px; height: 3px;
+    background: #ff6b6b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+/* ============================================
+   PAGE HEADER
+============================================ */
+
+.contact-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px 100px;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.contact-main-title {
+    font-family: 'Creepster', cursive;
+    font-size: 5rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    text-shadow:
+        4px 4px 8px rgba(0,0,0,0.9),
+        0 0 30px rgba(255,0,0,0.8),
+        0 0 60px rgba(139,0,0,0.6);
+    margin-bottom: 20px;
+    animation: titlePulse 4s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 0 0 30px rgba(255,0,0,0.8), 0 0 60px rgba(139,0,0,0.6); }
+    50%       { text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 0 0 50px rgba(255,0,0,1), 0 0 90px rgba(139,0,0,0.8); }
+}
+
+.header-line {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+    margin: 15px auto;
+    box-shadow: 0 0 15px rgba(255,0,0,0.6);
+}
+
+.contact-subtitle {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.3rem;
+    color: #ff6b6b;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+/* ============================================
+   MAIN GRID: Info + Form
+============================================ */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* ============================================
+   INFO COLUMN (Left)
+============================================ */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-block {
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 2px solid #4a0000;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(139,0,0,0.03) 40px, rgba(139,0,0,0.03) 80px);
+    pointer-events: none;
+}
+
+.info-block:hover {
+    border-color: #ff0000;
+    box-shadow: 0 0 25px rgba(255,0,0,0.2);
+}
+
+.info-block-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.info-block-title {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.1rem;
+    color: #ff6b6b;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(255,0,0,0.4);
+}
+
+.info-block-text {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.info-block-text a {
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-block-text a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 8px rgba(255,0,0,0.5);
+}
+
+.social-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #4a0000;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #cccccc;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.social-item:hover {
+    border-color: #ff0000;
+    background: rgba(139,0,0,0.2);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255,0,0,0.3);
+    color: #ff6b6b;
+}
+
+.social-item img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* ============================================
+   FORM (Right)
+============================================ */
+
+.contact-form-wrap {
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 2px solid #4a0000;
+    border-radius: 20px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(139,0,0,0.3), inset 0 0 40px rgba(0,0,0,0.4);
+}
+
+.contact-form-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(139,0,0,0.03) 40px, rgba(139,0,0,0.03) 80px);
+    pointer-events: none;
+}
+
+.form-title {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(255,0,0,0.5);
+}
+
+.form-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #4a0000;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: Arial, sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #555;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255,0,0,0.25);
+    background: rgba(20,0,0,0.8);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ff6b6b' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.form-select option {
+    background: #1a0000;
+    color: #fff;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+.form-submit {
+    background: linear-gradient(135deg, #8b0000, #ff0000, #8b0000);
+    background-size: 200% 100%;
+    border: none;
+    color: #fff;
+    padding: 16px 30px;
+    border-radius: 10px;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(139,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.form-submit:hover {
+    background-position: right center;
+    box-shadow: 0 8px 30px rgba(255,0,0,0.6);
+    transform: translateY(-2px);
+}
+
+.form-submit:hover::before {
+    transform: translateX(100%);
+}
+
+.form-submit:active {
+    transform: translateY(0);
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: #555;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   FOOTER SECTION - LOS TRIOS STYLE
+   Add this CSS to style.css
+   ============================================ */
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
+    border-top: 3px solid #4a0000;
+/* Zeile 2027 - weniger Padding oben/unten */
+padding: 45px 20px 20px;
+
+/* Zeile 2028 - weniger Abstand nach oben */
+    overflow: hidden;
+    box-shadow: 
+        0 -10px 40px rgba(139, 0, 0, 0.5),
+        inset 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.site-footer::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
+    animation: footerPulse 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes footerPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+.footer-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   FOOTER TOP SECTION
+   ============================================ */
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-family: 'Creepster', cursive;
+    font-size: 1.3rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.footer-description {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.footer-logo-small {
+    width: 55px;
+    height: 55px;
+    opacity: 0.3;
+    filter: grayscale(1) brightness(0.5);
+    transition: all 0.3s ease;
+}
+
+.footer-logo-small:hover {
+    opacity: 0.6;
+    filter: grayscale(0) brightness(1);
+}
+
+.footer-logo-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================
+   FOOTER LINKS
+   ============================================ */
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 7px;
+}
+
+.footer-links a {
+    color: #ff9999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+}
+
+.footer-links a::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #8b0000;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    transform: translateX(5px);
+}
+
+.footer-links a:hover::before {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+/* ============================================
+   SOCIAL MEDIA LINKS
+   ============================================ */
+
+/* ============================================
+   FOOTER SOCIAL MEDIA ICONS
+   ============================================ */
+
+.social-link a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-link a:hover {
+    text-decoration: none;
+    color: #ff6b6b;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link {
+    text-decoration: none;
+}
+
+.social-link > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid #4a0000;
+    background: rgba(0, 0, 0, 0.4);
+    color: #cccccc;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.social-link > div img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.social-link:hover > div {
+    border-color: #ff0000;
+    background: rgba(139, 0, 0, 0.2);
+    color: #ff6b6b;
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.social-link:hover > div img {
+    filter: brightness(1.2);
+}
+/* ============================================
+   NEWSLETTER FORM
+   ============================================ */
+
+.footer-newsletter-text {
+    font-size: 0.8rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.newsletter-input {
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #4a0000;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+    color: #666666;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #ff0000;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.newsletter-button {
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #4a0000 0%, #8b0000 100%);
+    border: 2px solid #8b0000;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*
+.newsletter-button:hover {
+    background: linear-gradient(135deg, #8b0000 0%, #ff0000 100%);
+    border-color: #ff0000;
+    transform: translateY(-3px);
+    box-shadow: 
+        0 6px 20px rgba(255, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 0, 0, 0.3);
+}
+*/
+
+/* ============================================
+   FOOTER DIVIDER
+   ============================================ */
+
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b0000, transparent);
+    margin: 40px 0;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ============================================
+   FOOTER BOTTOM SECTION
+   ============================================ */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 25px;
+}
+
+.footer-copyright {
+    text-align: left;
+}
+
+.footer-copyright p {
+    color: #999999;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.footer-subtitle {
+    font-family: 'Metal Mania', cursive;
+    color: #8b0000;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-legal a {
+    color: #999999;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.footer-legal a:hover {
+    color: #ff6b6b;
+}
+
+.footer-separator {
+    color: #4a0000;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .footer-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 60px 20px 25px;
+        margin-top: 80px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+
+    .footer-description,
+    .footer-newsletter-text {
+        font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-skull {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 50px 15px 20px;
+        margin-top: 60px;
+    }
+
+    .footer-top {
+        gap: 30px;
+    }
+
+    .footer-title {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+    }
+
+    .footer-description,
+    .footer-newsletter-text,
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .social-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        font-size: 1.3rem;
+    }
+
+    .newsletter-input,
+    .newsletter-button {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+    }
+
+    .footer-copyright p,
+    .footer-legal a {
+        font-size: 0.85rem;
+    }
+    
+    .footer-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .footer-skull {
+        font-size: 2rem;
+        opacity: 0.05;
+    }
+
+    .footer-skull-left {
+        bottom: 10px;
+        left: 15px;
+    }
+
+    .footer-skull-right {
+        top: 30px;
+        right: 15px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+    .footer-title {
+        font-size: 1.2rem;
+    }
+
+    .footer-legal {
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+}
+
+/* ============================================
+   BOTTOM COPYRIGHT BAR - ULTRA THIN
+   ============================================ */
+
+.bottom-copyright {
+    position: relative;
+    width: 100%;
+    background: #000000;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bottom-copyright-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #4a0000 10%, 
+        #8b0000 30%, 
+        #ff0000 50%, 
+        #8b0000 70%, 
+        #4a0000 90%, 
+        transparent 100%
+    );
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    animation: lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+    0%, 100% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px lab(53.23% 80.11 67.22 / 0.6);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+    }
+}
+
+.bottom-copyright-content {
+    padding: 12px 20px;
+    text-align: center;
+    background: linear-gradient(135deg,53.23% 80.11 67.22 / 0.6, #efe6e6 50%, #c29393 100%);
+}
+
+.bottom-copyright-content p {
+    margin: 0;
+    color: white;
+    font-size: 0.35rem;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+}
+
+.bottom-copyright-content a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-copyright-content a:hover {
+    color: #5904c1;
+    text-shadow: 0 0 8px rgba(51, 11, 111, 0.6);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .bottom-copyright-content {
+        padding: 10px 15px;
+    }
+    
+    .bottom-copyright-content p {
+        font-size: 0.4rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bottom-copyright-content {
+        padding: 8px 10px;
+    }
+    
+    .bottom-copyright-content p {
+        font-size: 0.1rem;
+    }
+}
+
+
+.bottom-copyright-content p {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 1.5px;
+    font-family: Arial, sans-serif;
+}
+
+.bottom-copyright-content a {
+    color: rgba(251, 70, 70, 0.768);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.bottom-copyright-content a:hover {
+    color: #ff6b6b;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}

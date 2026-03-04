@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,700&display=swap" rel="stylesheet">
+    <title>Los Trios</title>
+</head>
+<body class="body">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-logo">
+        <span class="logo-text">Los Trios</span>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#galerie" class="nav-link">Galerie</a></li>
+        <li><a href="./Songs.html" class="nav-link">Songs</a></li>
+        <li><a href="./Bio.html" class="nav-link">Biographie</a></li>
+        <li><a href="#news" class="nav-link">News</a></li>
+        <li><a href="./Contact.html" class="nav-link">Contact</a></li>
+        <li><a href="./Partner.html" class="nav-link">Partner</a></li>
+      </ul>
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Monster im Hintergrund - nur bei Blitzen sichtbar -->
+    <div class="monster-background">
+       <picture>
+    <source media="(max-width: 768px)" srcset="./Img/El_Chupacabra_Phone.png">
+    <img src="./Img/El_chupacabra.png" alt="Monster Silhouette" class="monster-img">
+</picture>
+    </div>
+
+<canvas id="lightningCanvas"></canvas>
+    <div class="LosTrios_Logo" id="home">
+       <div class="plektrum-wrapper">
+  <img src="./Img/Lostrios_Pleck.png" alt="Lostrios Plektrum" class="plektrum-img" />
+<img src="./Img/Guitar_Logo_White2.png" class="guitar-anim guitar-left" alt="Gitarre Links" />
+<img src="./Img/Guitar_Logo_White.png" class="guitar-anim guitar-right" alt="Gitarre Rechts" />
+
+
+  <span class="plektrum-text">
+   <?xml version="1.0" encoding="UTF-8"?>
+<svg id="Schrift" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4928.2129612562 958.3175450055">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M4.1376714767,922.4641629914h103.4128183894L350.234336747,48.2615683561h-103.4176464775l5.518504665-19.3123522834h344.7158320821l-5.5136765769,19.3123522834h-111.6881613428l-242.6838468809,874.2025946353h199.9359551017c170.9819109408,0,313.0049496328-114.4449996313,369.5370328543-319.8994593979h20.6835292955l-103.4128183894,339.2021555052H0l4.1376714767-19.3026961072Z"/>
+  <path class="cls-1" d="M882.4924218529,728.0370563786c0-77.2107844289,28.9588722489-159.9449016109,85.4909554704-227.5091660743,71.7019359401-85.4861273823,143.4038718802-124.1011757729,242.6790187929-124.1011757729,119.9635042962,0,199.9359551017,89.6286269471,199.9359551017,227.5188222504,0,81.3532839937-28.9540441608,162.7065679874-85.4861273823,230.2708324508-68.9450976516,82.734117182-144.7847050684,124.1011757729-230.2756605389,124.1011757729-128.2340191616,0-212.3441414437-92.3902933237-212.3441414437-230.2804886269ZM1054.8503378939,526.7250961767c-55.1512500332,117.2066660078-77.215612517,233.0324988273-77.215612517,288.1885769486,0,81.3532839937,39.9862254027,126.8531859733,113.0689945311,126.8531859733,60.6697546982,0,106.1696566778-44.1287249675,148.9175484571-133.7476957385,53.775244933-111.6929894309,75.8396074168-230.2708324508,75.8396074168-292.3214203373,0-82.734117182-35.8533820141-122.7203425847-111.6929894309-122.7203425847-64.8025980868,0-107.5504898661,44.1190687914-148.9175484571,133.7476957385Z"/>
+  <path class="cls-1" d="M1668.4713631696,696.3261739293c-51.0184066446-42.7478917792-85.4909554704-75.8396074168-85.4909554704-139.2613723154,0-95.142303524,82.734117182-180.6380870825,197.1791168132-180.6380870825,93.7662984238,0,158.5737245988,44.1287249675,158.5737245988,100.6559801009,0,37.2342152023-27.5780390607,64.812254263-64.8074261749,64.812254263s-66.1882593632-26.1972058724-66.1882593632-60.6697546982c0-42.7478917792,46.8807351679-56.5369113096,46.8807351679-60.6697546982,0-8.2753429534-23.4403675839-24.8260288603-64.8074261749-24.8260288603-74.4587742285,0-124.0963476849,46.890391344-124.0963476849,107.5601460422,0,52.3944117448,49.6375734563,82.7244610058,114.4449996313,132.3668625502,53.775244933,41.367058591,86.8717886587,71.7067640282,86.8717886587,143.4038718802,0,93.7614703358-103.4176464775,177.876420706-237.165342216,177.876420706-106.1744847659,0-182.0140921827-63.4314210747-182.0140921827-135.1285289268,0-44.1287249675,33.0917156376-81.3532839937,73.0827691284-81.3532839937,41.367058591,0,68.9402695636,26.1972058724,68.9402695636,60.6697546982,0,22.0547063076-16.5458578188,44.1190687914-44.1238968794,57.9080883217-23.4403675839,11.03700933-44.1238968794,9.6561761417-44.1238968794,17.9315190951,0,11.0273531538,49.6424015444,56.5272551334,119.9635042962,56.5272551334,82.734117182,0,137.8853672152-49.6327453683,137.8853672152-110.3121562426,0-56.5272551334-39.9862254027-84.1052941941-91.0046320473-126.8531859733Z"/>
+  <path class="cls-1" d="M2483.4043486472,922.4641629914h103.4176464775l241.2981856046-874.2025946353h-102.0368132892c-133.7476957385,0-231.646837551,95.142303524-288.1789207725,281.2844110073h-19.3026961072l82.7292890939-300.5967632907h788.7116391648l-82.7244610058,300.5967632907h-23.445195672c13.7890195303-53.7752449331,22.0643624838-99.2751469127,22.0643624838-137.8901953033,0-103.4079903013-57.9177444978-143.394215704-179.2572538943-143.394215704h-68.9450976516l-242.6790187929,874.2025946353h113.064166443l-5.5136765769,19.3026961072h-344.7158320821l5.5136765769-19.3026961072Z"/>
+  <path class="cls-1" d="M3480.3755667479,377.8075477196c42.7382356031,0,67.5642644634,23.445195672,67.5642644634,64.812254263,0,38.6053922145-27.5780390607,67.5642644634-64.812254263,67.5642644634-31.7108824493,0-56.5369113096-26.2068620485-56.5369113096-53.7752449331,0-13.7890195303,9.6561761417-26.2068620485,9.6561761417-37.2342152023q0-1.3808331883-2.7616663765-1.3808331883c-41.3574024148,0-137.8805391271,91.0094601354-180.6284309064,230.2708324508l-89.6286269471,293.7022535255h-107.5504898661l164.0874011757-529.4867625532h-81.3532839937l5.5136765769-19.3026961072h52.3944117448c42.7478917792,0,91.0094601354-1.3808331883,142.0230386919-16.5506859069l-49.6327453683,146.1655382567c64.8025980869-96.5231367123,125.4723527851-144.7847050684,191.6654402363-144.7847050684Z"/>
+  <path class="cls-1" d="M3594.8205663792,412.2800965454l5.5233327531-19.3026961072h53.775244933c42.7382356031,0,89.6286269471-1.3808331883,140.6422055037-16.5506859069l-130.9956855381,434.3444590292c-11.0273531538,34.4725488258-15.1601965424,59.2985776861-15.1601965424,71.7067640282,0,24.8163726841,12.4081863421,37.2245590262,35.8437258379,37.2245590262,37.2342152024,0,77.2204406051-38.6053922145,139.2710284915-108.9313230544l13.7890195303,11.0370093299c-71.7067640282,88.2477937589-130.9956855381,133.7476957385-197.1791168132,133.7476957385-56.5369113096,0-92.3902933236-34.4725488258-92.3902933236-91.0094601354,0-27.5780390606,9.6561761417-60.6697546982,22.0643624837-100.6559801009l107.5504898661-351.6103418472h-82.734117182ZM3849.9174276902,0c27.5780390607,0,51.0135785565,26.1972058724,51.0135785565,62.0505878865,0,46.8807351679-31.7108824493,82.7244610058-68.9354414755,82.7244610058-27.5780390607,0-51.0232347327-24.8163726841-51.0232347327-59.28892151,0-46.8807351679,33.0917156376-85.4861273823,68.9450976516-85.4861273823Z"/>
+  <path class="cls-1" d="M3871.9721339978,728.0370563786c0-77.2107844289,28.9588722489-159.9449016109,85.4861273823-227.5091660743,71.7067640282-85.4861273823,143.4038718802-124.1011757729,242.688674969-124.1011757729,119.9586762082,0,199.9311270136,89.6286269471,199.9311270136,227.5188222504,0,81.3532839937-28.9492160728,162.7065679874-85.4861273824,230.2708324508-68.9450976516,82.734117182-144.7847050684,124.1011757729-230.2708324508,124.1011757729-128.2340191616,0-212.3489695318-92.3902933237-212.3489695318-230.2804886269ZM4044.3348781269,526.7250961767c-55.1560781213,117.2066660078-77.2204406051,233.0324988273-77.2204406051,288.1885769486,0,81.3532839937,39.9862254027,126.8531859733,113.064166443,126.8531859733,60.6697546982,0,106.179312854-44.1287249675,148.9175484571-133.7476957385,53.7752449331-111.6929894309,75.8396074168-230.2708324508,75.8396074168-292.3214203373,0-82.734117182-35.8437258379-122.7203425847-111.6833332547-122.7203425847-64.812254263,0-107.5504898661,44.1190687914-148.9175484571,133.7476957385Z"/>
+  <path class="cls-1" d="M4657.9559034027,696.3261739293c-51.0232347327-42.7478917792-85.4957835585-75.8396074168-85.4957835585-139.2613723154,0-95.142303524,82.734117182-180.6380870825,197.1791168132-180.6380870825,93.7614703358,0,158.5737245988,44.1287249675,158.5737245988,100.6559801009,0,37.2342152023-27.5780390607,64.812254263-64.812254263,64.812254263-37.2245590262,0-66.1834312751-26.1972058724-66.1834312751-60.6697546982,0-42.7478917792,46.8807351679-56.5369113096,46.8807351679-60.6697546982,0-8.2753429534-23.4355394959-24.8260288603-64.8025980868-24.8260288603-74.4587742285,0-124.101175773,46.890391344-124.101175773,107.5601460422,0,52.3944117448,49.6424015444,82.7244610058,114.4449996313,132.3668625502,53.7752449331,41.367058591,86.8669605706,71.7067640282,86.8669605706,143.4038718802,0,93.7614703358-103.4079903013,177.876420706-237.1653422159,177.876420706-106.1696566778,0-182.0092640946-63.4314210747-182.0092640946-135.1285289268,0-44.1287249675,33.0917156376-81.3532839937,73.0779410403-81.3532839937,41.367058591,0,68.9450976516,26.1972058724,68.9450976516,60.6697546982,0,22.0547063076-16.5410297307,44.1190687914-44.1190687914,57.9080883217-23.445195672,11.03700933-44.1287249675,9.6561761417-44.1287249675,17.9315190951,0,11.0273531538,49.6424015444,56.5272551334,119.9683323843,56.5272551334,82.7244610058,0,137.8805391271-49.6327453683,137.8805391271-110.3121562426,0-56.5272551334-39.9862254027-84.1052941941-90.9998039592-126.8531859733Z"/>
+</svg>
+    <span class="shine"></span>
+  </a>
+</span>
+</div>
+</div>
+
+<!-- Banner Container - erscheint beim Scrollen -->
+<div class="banner-container">
+    <div class="banner">        
+        <div class="content">
+            <div class="label">New Album</div>
+            <div class="title" data-text="Overdose of Everything">Overdose of Everything</div>
+            <div class="date">Release 22.10.2025</div>
+        </div>
+    </div>
+</div>
+
+<!-- NEWS SECTION -->
+<div class="news-section" id="news">
+    <div class="news-card">
+        <div class="card-content">
+            <div class="card-header">
+                <h2 class="card-title">Latest News</h2>
+                <div class="header-line"></div>
+            </div>
+        <div class="news-grid">
+
+
+            <div class="news-item">
+                <div class="news-image-container">
+                    <img src="./Img/Lenny_Schlaf.JPG" alt="Overdose of Everything" class="news-image news-image--album">
+                        <div class="news-image-overlay">
+                            <span class="news-category">ALBUM</span>
+                        </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">22.10.2025</div>
+                        <h3 class="news-title">New Album "Overdose of Everything" Announced</h3>
+                        <p class="news-description">
+                        On October 22nd, we dropped our debut album. With the support of Acces Audio Production, we brought our first 3 singles to Spotify for the world to hear.
+                        </p>
+                    <a href="./Songs.html" class="news-link">Read More →</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-image-container">
+                    <img src="./Img/Tour.jpg" alt="European Tour 2026" class="news-image">
+                <div class="news-image-overlay">
+                <span class="news-category">TOUR</span>
+            </div>
+            </div>
+            <div class="news-content">
+                <div class="news-date">24.05.2026</div>
+                    <h3 class="news-title">European Tour 2026 Dates Released</h3>
+                    <p class="news-description">
+                    Schön wärs nieri, wie wenn eus öpper würi lose🥲
+                    </p>
+                <a href="#" class="news-link">Read More →</a>
+            </div>
+            </div>
+
+                <div class="news-item">
+                    <div class="news-image-container">
+                    <img src="./Img/Acces_Audio.png" alt="Studio Sessions" class="news-image news-image--studio">
+                        <div class="news-image-overlay">
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">16.08.2025</div>
+                        <h3 class="news-title">Behind The Scenes: Studio Sessions</h3>
+                        <p class="news-description">
+                            Mösst mer no Aluege aber ich han dänkt wär e cooli idee wenmer so Paar Fotene oder Videos vom Studio da anne dönd.
+                            So chli Behind the Scenes mässig.
+                       </p>
+                        <a href="https://www.access-productions.ch/" target="_blank" class="news-link">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<!-- GALLERY SECTION -->
+<div class="gallery-section" id="galerie">
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h2 class="gallery-title">Gallery</h2>
+            <div class="gallery-subtitle">Photos & Videos from the Stage and Studio</div>
+            <div class="header-line"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="live">Live Shows</button>
+            <button class="filter-btn" data-filter="studio">Studio</button>
+            <button class="filter-btn" data-filter="backstage">Backstage</button>
+            <button class="filter-btn" data-filter="video">Videos</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <!-- 
+            ============================================================
+            REIHENFOLGE PRO KATEGORIE anpassen:
+            Jedes Item hat data-order-[kategorie]="Nummer"
+            - data-order-all    = Reihenfolge bei "All" (NIE ändern!)
+            - data-order-live   = Reihenfolge bei "Live Shows"
+            - data-order-studio = Reihenfolge bei "Studio"
+            - data-order-backstage = Reihenfolge bei "Backstage"
+            - data-order-video  = Reihenfolge bei "Videos"
+            Einfach die Zahlen tauschen um die Reihenfolge zu ändern!
+            ============================================================
+        -->
+        <div class="gallery-grid">
+
+            <!-- 1: Walhof BandFoto | LIVE #1 -->
+            <div class="gallery-item gallery-item-large" 
+                 data-category="live"
+                 data-order-all="1"
+                 data-order-live="1">
+                <img src="./Img/Walhof_BandFoto.jpg" alt="Los Trios Band" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Los Trios Live</h3>
+                        <p class="gallery-item-desc">Current Band Foto</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2: Music Video Placeholder | VIDEO #1 -->
+            <div class="gallery-item" 
+                 data-category="video"
+                 data-order-all="2"
+                 data-order-video="1">
+                <div class="gallery-placeholder gallery-video">
+                    <div class="placeholder-icon">▶</div>
+                    <div class="placeholder-text">Music Video</div>
+                    <div class="video-duration">3:45</div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Overdose - Official Video</h3>
+                        <p class="gallery-item-desc">New Single</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3: Studio1 | STUDIO #1 -->
+            <div class="gallery-item" 
+                 data-category="studio"
+                 data-order-all="3"
+                 data-order-studio="1">
+                <img src="./Img/Studio1.JPG" alt="Studio Session" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Recording Session</h3>
+                        <p class="gallery-item-desc">Album Production</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" 
+                 data-category="live"
+                 data-order-all="4"
+                 data-order-live="4">
+                <img src="./Img/4_Januar_Hochkant.jpg" alt="Los Trios Portrait" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Los Trios Gig</h3>
+                        <p class="gallery-item-desc"> 4. Januar (glaub)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5: Ibanez 2 | STUDIO #2 -->
+            <div class="gallery-item gallery-item-large" 
+                 data-category="live"
+                 data-order-all="5"
+                 data-order-live="6">
+                <img src="./Img/Schöne_Ibanez2.jpg" alt="Ibanez Guitar" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Beautiful Ibanez</h3>
+                        <p class="gallery-item-desc">Kevin Guitar</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" 
+                 data-category="studio"
+                 data-order-all="6"
+                 data-order-studio="3">
+                <img src="./Img/Studio2.JPG" alt="Schöne Ibanez Gitarre" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Studio</h3>
+                        <p class="gallery-item-desc">Studio Session</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 7: 4_Januar_Band Wide | LIVE #2 -->
+            <div class="gallery-item gallery-item-wide" 
+                 data-category="live"
+                 data-order-all="7"
+                 data-order-live="5">
+                <img src="./Img/4_Januar_Band.jpg" alt="Los Trios 4. Januar" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">4. Januar Show</h3>
+                        <p class="gallery-item-desc">Full Band on Stage</p>
+                    </div>
+                </div>
+            </div>
+
+
+                        <!-- 6: Waldhof | BACKSTAGE #2 -->
+            <div class="gallery-item" 
+                 data-category="backstage"
+                 data-order-all="8"
+                 data-order-backstage="2">
+                <img src="./Img/Waldhof_Lostrios.jpg" alt="Backstage Los Trios" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Before the Show</h3>
+                        <p class="gallery-item-desc">Getting Ready</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9: Ibanez 1 | STUDIO #3 -->
+            <div class="gallery-item gallery-item-large" 
+                 data-category="live"
+                 data-order-all="9"
+                 data-order-studio="5">
+                <img src="./Img/Schöne_Ibanez1.jpg" alt="Schöne Ibanez Gitarre" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">Again Beautiful Ibanez</h3>
+                        <p class="gallery-item-desc">Wauw</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10: Tour | LIVE #3 -->
+            <div class="gallery-item gallery-item-large" 
+                 data-category="live"
+                 data-order-all="10"
+                 data-order-live="2">
+                <img src="./Img/Tour.jpg" alt="Los Trios Tour" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3 class="gallery-item-title">On Tour</h3>
+                        <p class="gallery-item-desc">European Tour 2026 (K.a han no es Bild brucht sorry😁)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="gallery-load-more">
+            <button class="load-more-btn">
+                <span class="btn-text">Load More</span>
+                <span class="btn-icon">↓</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER SECTION - Add this before closing </body> tag in Index.html -->
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <!-- Footer Top Section -->
+        <div class="footer-top">
+            <!-- About Section -->
+            <div class="footer-column">
+                <h3 class="footer-title">Los Trios</h3>
+                <p class="footer-description">
+                    Unleashing dark melodies and crushing riffs since the shadows first spoke. 
+                    Gothic Metal from the depths of darkness.
+                </p>
+                <div class="footer-logo-small">
+                    <img src="./Img/Lostrios_Pleck.png" alt="Los Trios Pick" />
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="./Index.html">Home</a></li>
+                    <li><a href="./Index.html#Galarie">Gallery</a></li>
+                    <li><a href="./Songs.html">Songs</a></li>
+                    <li><a href="#biographie">Biography</a></li>
+                    <li><a href="./Index.html#News">News</a></li>
+                    <li><a href="./Contact.html">Contact</a></li>
+                    <li><a href="./Partner.html">partners</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-column">
+                <h3 class="footer-title">Follow Us</h3>
+                <div class="social-links">
+                    <div class="social-link">
+                        <div class="Spotify_Icon">
+                            <img src="./Img/Spotify.png" alt="Los Trios Pick" />
+                            <a href="https://open.spotify.com/intl-de/artist/42PNTaZH3PRg9yJka15HdF?si=mTQ0R6hRS46simqVmJmf4g" target="_blank">Spotify</a>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <div class="Youtube_Icon">
+                            <img src="./Img/Youtube.png" alt="Los Trios Pick" />
+                            <a href="https://www.youtube.com/@LosTrios7" target="_blank">Youtube</a>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <div class="Insta_Icon">
+                            <img src="./Img/Insta.png" alt="Los Trios Pick" />
+                            <a href="https://www.instagram.com/lostrios7?igsh=MW81bDdreXM4b2owOA==" target="_blank">Instagramm</a>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <div class="TikTok_Icon">
+                            <img src="./Img/TikTok.png" alt="Los Trios Pick" />
+                            <a href="https://www.tiktok.com/@lostrios_band?_r=1&_t=ZN-941j7NXd8a6" target="_blank">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-column">
+                <h3 class="footer-title">Join the Darkness</h3>
+                <p class="footer-newsletter-text">
+                    Subscribe to get the latest news, tour dates, and exclusive content.
+                </p>
+                <form class="newsletter-form">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email..." 
+                        class="newsletter-input"
+                        required
+                    />
+                    
+                    <buttond type="submit" class="newsletter-button">
+                        Comming soon
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider"></div>
+    <div class="bottom-copyright-content">
+        <p>© 2026 Los Trios | Powered / Designed By <a href="https://wendico.ch" target="_blank" rel="noopener">WENDICO</a></p>
+    </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

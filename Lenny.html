@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Lenny het en Chline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Ergänze im bestehenden HTML innerhalb deines <body> Bereichs -->
+<div class="easter-egg" id="eggQuiz">
+    <div id="quizText" style="font-weight:600; font-size:1.1em; margin-bottom:1em;">
+        Wer von der Band hat wirklich nachgemessen?
+    </div>
+    <div>
+<button class="egg-btn" onclick="showQuizAnswer('nera')">Nera</button>
+<button class="egg-btn" onclick="showQuizAnswer('bobby')">Bobby</button>
+<button class="egg-btn" onclick="showQuizAnswer('kelvin')">Kelvin</button>
+<button class="egg-btn" onclick="showQuizAnswer('zwerg')">Zwerg</button>
+<button class="egg-btn" onclick="showQuizAnswer('bablo')">Bablo</button>
+
+<div id="quiz-answer"></div>
+
+    </div>
+    <div id="quizAnswer" style="margin-top:1.5em; min-height:2em;"></div>
+    <button class="close-egg" style="margin-top:2em;" onclick="closeQuiz()">Schliessen</button>
+</div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', monospace;
+            overflow: hidden;
+        }
+        .main {
+            text-align: center;
+        }
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            background: linear-gradient(90deg, #654ea3, #eaafc8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+        h1:hover {
+            transform: scale(1.04) rotate(-1deg);
+            filter: brightness(1.08);
+        }
+        .egg-btn {
+            margin: 20px 10px 0 10px;
+            padding: 12px 22px;
+            background: #fff3;
+            border: none;
+            border-radius: 2em;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px #0001;
+        }
+        .egg-btn:hover {
+            background: #eaafc855;
+        }
+        /* Easter Egg Popup */
+        .easter-egg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #fffbe7;
+            border-radius: 1.5em;
+            box-shadow: 0 8px 40px #654ea322;
+            padding: 2.5em 2em 2em 2em;
+            min-width: 250px;
+            z-index: 99;
+            text-align: center;
+            font-size: 1.3rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+        .easter-egg.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .close-egg {
+            margin-top: 18px;
+            background: #eaafc8;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 2em;
+            cursor: pointer;
+        }
+        #eggQuiz {
+    position: fixed;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fffbe7;
+    border-radius: 1.5em;
+    box-shadow: 0 8px 40px #654ea322;
+    padding: 2.5em 2em 2em 2em;
+    min-width: 260px;
+    z-index: 999;
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+#eggQuiz.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 id="mainTitle">Lenny het en Chline</h1>
+        <div>
+            <button class="egg-btn" onclick="showEgg(0)">Was sagen Forscher?</button>
+            <button class="egg-btn" onclick="showEgg(1)">Wurde er schon gefunden?</button>
+            <button class="egg-btn" onclick="showEgg(2)">Grössenvergleich?</button>
+        </div>
+    </div>
+    <div class="easter-egg" id="eggPopup">
+        <div id="eggText"></div>
+        <button class="close-egg" onclick="closeEgg()">Schliessen</button>
+    </div>
+    <script>
+        if (!localStorage.getItem('unlockedLenny')) {
+    window.location.href = './index.html';
+}
+window.addEventListener('beforeunload', function() {
+    localStorage.removeItem('unlockedLenny');
+});
+
+        const texts = [
+            'Forscher vermuten: maximal 2mm!',
+            'Bis jetzt hat ihn wegen seiner Grösse noch niemand gefunden.',
+            'Im Vergleich zu einem Reiskorn... tja, schwierig!'
+        ];
+        function showEgg(idx) {
+            document.getElementById('eggText').textContent = texts[idx];
+            document.getElementById('eggPopup').classList.add('active');
+        }
+        function closeEgg() {
+            document.getElementById('eggPopup').classList.remove('active');
+        }
+        // Kleines Easter Egg: Klick auf den Titel
+        document.getElementById('mainTitle').onclick = function() {
+            showEgg(0 + Math.floor(Math.random() * texts.length));
+        };
+        // Easter Egg Quiz-Logik
+function showQuiz() {
+    document.getElementById('eggQuiz').classList.add('active');
+    document.getElementById('quizAnswer').textContent = '';
+}
+function closeQuiz() {
+    document.getElementById('eggQuiz').classList.remove('active');
+}
+function showQuizAnswer(name) {
+    var answerDiv = document.getElementById('quizAnswer');
+    if (name === 'bobby') {
+        answerDiv.textContent = 'Figg dich ich bin nöd so Schwul';
+    } else if (name === 'nera') {
+        answerDiv.textContent = 'Bro? Ich bin en Hund';
+    } else if (name === 'zwerg') {
+        answerDiv.textContent = 'Isch sogar für mich zu Klein';
+    } else if (name === 'kelvin') {
+        answerDiv.textContent = 'Lineal chan nöd so chlini Agabe mache';
+    } else if (name === 'bablo') {
+        answerDiv.textContent = 'Wenn de Drumm Stick als Verlängerig nimsch gsesch en immernonig.';
+    } else {
+        answerDiv.textContent = 'Leider war das Lineal zu kurz… Versuchs nächstes Mal mit einem Mikroskop! 🧐';
+    }
+}
+
+// Beim Klick auf den Titel: Quiz anzeigen!
+document.getElementById('mainTitle').onclick = function() {
+    showQuiz();
+};
+
+    </script>
+</body>
+</html>

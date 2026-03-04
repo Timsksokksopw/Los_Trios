@@ -1,0 +1,1879 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap');
+
+* {
+    margin: 1;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #000000 0%, #000000 50%, #000000 100%);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin-top: 40px;
+}
+
+/* ============================================
+   ALBUMS OVERVIEW SECTION
+   ============================================ */
+
+.albums-section {   
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.albums-container {
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.albums-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.albums-title {
+    font-family: 'Creepster', cursive;
+    font-size: 5rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    text-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 0, 0, 0.8),
+        0 0 60px rgba(139, 0, 0, 0.6);
+    margin-bottom: 20px;
+    animation: titlePulse 4s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        text-shadow: 
+            4px 4px 8px rgba(0, 0, 0, 0.9),
+            0 0 30px rgba(255, 0, 0, 0.8),
+            0 0 60px rgba(139, 0, 0, 0.6);
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 
+            4px 4px 8px rgba(0, 0, 0, 0.9),
+            0 0 40px rgba(255, 0, 0, 1),
+            0 0 80px rgba(139, 0, 0, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+.albums-subtitle {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.header-line {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+/* ============================================
+   ALBUMS GRID
+   ============================================ */
+
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.album-card {
+    position: relative;
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 3px solid #4a0000;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.album-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.album-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    border-color: #ff0000;
+    box-shadow: 
+        0 20px 50px rgba(255, 0, 0, 0.6),
+        inset 0 0 50px rgba(255, 0, 0, 0.2);
+}
+
+/* Album Cover */
+.album-cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.album-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Bild füllt Container, behält Proportionen */
+    object-position: center; /* Bild wird zentriert */
+    display: block; /* Entfernt ungewollte Margins */
+    transition: transform 0.5s ease;
+}
+
+.album-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.album-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 30px,
+            rgba(139, 0, 0, 0.05) 30px,
+            rgba(139, 0, 0, 0.05) 60px
+        );
+}
+
+.vinyl-icon {
+    font-size: 8rem;
+    filter: grayscale(1) brightness(0.3);
+    animation: vinylSpin 8s linear infinite;
+    z-index: 1;
+}
+
+@keyframes vinylSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.album-year {
+    font-family: 'Metal Mania', cursive;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #4a0000;
+    letter-spacing: 3px;
+    z-index: 1;
+}
+
+.album-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(139, 0, 0, 0.9) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.album-card:hover .album-overlay {
+    opacity: 1;
+}
+
+.play-icon {
+    font-size: 5rem;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    animation: playPulse 2s ease-in-out infinite;
+}
+
+@keyframes playPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    }
+    50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 50px rgba(255, 0, 0, 1);
+    }
+}
+
+/* Album Info */
+.album-info {
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.album-name {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.album-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-family: 'Metal Mania', cursive;
+    color: #ff9999;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.album-genre {
+    display: inline-block;
+    background: rgba(139, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #ff6b6b;
+    border: 1px solid #4a0000;
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   ALBUM DETAIL VIEW
+   ============================================ */
+
+.album-detail-view {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+    border: 2px solid #4a0000;
+    color: #ff6b6b;
+    padding: 12px 25px;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.back-button:hover {
+    border-color: #ff0000;
+    color: #ff0000;
+    transform: translateX(-5px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+.back-arrow {
+    font-size: 1.5rem;
+}
+
+/* Detail Header */
+.detail-header {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 3px solid #4a0000;
+    border-radius: 15px;
+    box-shadow: 
+        0 10px 40px rgba(139, 0, 0, 0.5),
+        inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.detail-cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #4a0000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.detail-cover-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.detail-cover-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 40px,
+            rgba(139, 0, 0, 0.08) 40px,
+            rgba(139, 0, 0, 0.08) 80px
+        );
+}
+
+.vinyl-icon-large {
+    font-size: 12rem;
+    filter: grayscale(1) brightness(0.3);
+    animation: vinylSpin 8s linear infinite;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-genre {
+    display: inline-block;
+    background: rgba(139, 0, 0, 0.4);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #ff6b6b;
+    border: 2px solid #8b0000;
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    width: fit-content;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.detail-album-title {
+    font-family: 'Creepster', cursive;
+    font-size: 3.5rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+    text-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(255, 0, 0, 0.8),
+        0 0 40px rgba(139, 0, 0, 0.6);
+    line-height: 1.2;
+}
+
+.detail-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.2rem;
+    color: #ff9999;
+    letter-spacing: 2px;
+}
+
+.detail-separator {
+    color: #8b0000;
+}
+
+/* Album Story */
+.album-story {
+    margin-bottom: 60px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-left: 4px solid #8b0000;
+    border-radius: 10px;
+}
+
+.story-title {
+    font-family: 'Metal Mania', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.story-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #cccccc;
+    text-align: justify;
+}
+
+/* Tracklist */
+.tracklist-section {
+    padding: 40px;
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 3px solid #4a0000;
+    border-radius: 15px;
+    box-shadow: 
+        0 10px 40px rgba(139, 0, 0, 0.5),
+        inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.tracklist-title {
+    font-family: 'Metal Mania', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.tracklist {
+    margin-top: 30px;
+}
+
+.track-item {
+    display: grid;
+    grid-template-columns: 50px 1fr 80px;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid #4a0000;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.track-item:hover {
+    background: rgba(139, 0, 0, 0.2);
+    border-left-color: #ff0000;
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+}
+
+.track-number {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.5rem;
+    color: #8b0000;
+    text-align: center;
+}
+
+.track-name {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.track-duration {
+    font-family: 'Metal Mania', cursive;
+    color: #ff9999;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+.spotify-section {
+    margin-top: 50px;
+}
+
+.spotify-title {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.spotify-glow-wrapper {
+    position: relative;
+    border-radius: 16px;
+    padding: 4px;
+    background: linear-gradient(135deg, #8b0000, #ff0000, #4a0000, #ff3333);
+    background-size: 300% 300%;
+    animation: spotifyBorderGlow 4s ease-in-out infinite;
+    box-shadow:
+        0 0 30px rgba(255, 0, 0, 0.5),
+        0 0 60px rgba(139, 0, 0, 0.3);
+}
+
+@keyframes spotifyBorderGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), 0 0 60px rgba(139, 0, 0, 0.3);
+    }
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 50px rgba(255, 0, 0, 0.8), 0 0 100px rgba(139, 0, 0, 0.5);
+    }
+}
+
+.spotify-glow-wrapper #spotify-embed-container {
+    border-radius: 13px;
+    overflow: hidden;
+    background: #000;
+}
+
+.spotify-glow-wrapper iframe {
+    display: block;
+    border-radius: 13px;
+}
+
+.spotify-coming-soon {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0000, #1a0000);
+    border-radius: 13px;
+}
+
+.spotify-skull {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: skullPulse 2s ease-in-out infinite;
+}
+
+@keyframes skullPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.spotify-coming-text {
+    font-family: 'Creepster', cursive;
+    font-size: 1.8rem;
+    color: #ff6b6b;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    margin-bottom: 10px;
+}
+
+.spotify-coming-sub {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1rem;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+    .albums-title {
+        font-size: 4rem;
+        letter-spacing: 8px;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .detail-header {
+        grid-template-columns: 300px 1fr;
+        gap: 40px;
+        padding: 35px;
+    }
+
+    .detail-album-title {
+        font-size: 3rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .albums-section {
+        padding: 60px 15px;
+    }
+
+    .albums-title {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+
+    .albums-subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .albums-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .detail-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .detail-cover {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .detail-album-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .album-story,
+    .tracklist-section {
+        padding: 30px;
+    }
+
+    .track-item {
+        grid-template-columns: 40px 1fr 70px;
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .albums-section {
+        padding: 50px 10px;
+    }
+
+    .albums-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+
+    .albums-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .header-line {
+        width: 150px;
+    }
+
+    .album-name {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+
+    .vinyl-icon {
+        font-size: 6rem;
+    }
+
+    .album-year {
+        font-size: 1.5rem;
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .detail-album-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .detail-meta {
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .album-story,
+    .tracklist-section {
+        padding: 20px;
+    }
+
+    .story-title,
+    .tracklist-title {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+
+    .story-text {
+        font-size: 1rem;
+    }
+
+    .track-item {
+        grid-template-columns: 35px 1fr 60px;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .track-number {
+        font-size: 1.2rem;
+    }
+
+    .track-name {
+        font-size: 1rem;
+    }
+
+    .track-duration {
+        font-size: 0.9rem;
+    }
+
+    .vinyl-icon-large {
+        font-size: 8rem;
+    }
+
+    .spotify-placeholder {
+        padding: 40px 20px;
+    }
+
+    .spotify-icon {
+        font-size: 3.5rem;
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26, 0, 0, 0.98) 0%, rgba(45, 0, 0, 0.98) 50%, rgba(26, 0, 0, 0.98) 100%);
+    border-bottom: 2px solid #4a0000;
+    box-shadow: 
+        0 5px 20px rgba(139, 0, 0, 0.6),
+        inset 0 0 30px rgba(0, 0, 0, 0.5);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+.navbar.navbar-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
+    animation: navPulse 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes navPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+.navbar-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo .logo-text a {
+    color: inherit;
+    text-decoration: none;
+}
+.navbar-logo .logo-text {
+    font-family: 'Metal Mania', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(255, 0, 0, 0.6);
+    animation: logoGlow 3s ease-in-out infinite alternate;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo .logo-text:hover {
+    color: #ff3333;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 25px rgba(255, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px #ff0000);
+    }
+    50% {
+        filter: drop-shadow(0 0 18px #ff0000);
+    }
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 20px;
+    color: #cccccc;
+    text-decoration: none;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 107, 107, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: #ff6b6b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.mobile-menu-toggle:hover span {
+    background: #ff3333;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.navbar.menu-active .mobile-menu-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.navbar.menu-active .mobile-menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.menu-active .mobile-menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 1024px) {
+    .navbar-content {
+        padding: 15px 30px;
+    }
+
+    .navbar-menu {
+        gap: 0;
+    }
+
+    .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .navbar-logo .logo-text {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        padding: 12px 20px;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(26, 0, 0, 0.98) 0%, rgba(45, 0, 0, 0.98) 100%);
+        border-top: 1px solid #4a0000;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+    }
+
+    .navbar.menu-active .navbar-menu {
+        max-height: 500px;
+        box-shadow: 0 10px 30px rgba(139, 0, 0, 0.6);
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(74, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    .navbar-logo .logo-text {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-content {
+        padding: 10px 15px;
+    }
+
+    .navbar-logo .logo-text {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .mobile-menu-toggle span {
+        width: 25px;
+        height: 2.5px;
+    }
+}
+
+/* Am Anfang der songs-style.css - NAVBAR OVERRIDE */
+/* Macht die Navbar sofort sichtbar ohne Scroll-Animation */
+
+.banner-container {
+    position: fixed !important;
+    top: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Falls sie eine "visible" Klasse braucht */
+.banner-container.visible {
+    opacity: 1 !important;
+}
+
+/* ========== END NAVIGATION BAR ========== */
+
+
+/* ============================================
+   FOOTER SECTION - LOS TRIOS STYLE
+   Add this CSS to style.css
+   ============================================ */
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
+    border-top: 3px solid #4a0000;
+/* Zeile 2027 - weniger Padding oben/unten */
+padding: 45px 20px 20px;
+
+/* Zeile 2028 - weniger Abstand nach oben */
+    overflow: hidden;
+    box-shadow: 
+        0 -10px 40px rgba(139, 0, 0, 0.5),
+        inset 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.site-footer::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
+    animation: footerPulse 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes footerPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+.footer-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   FOOTER TOP SECTION
+   ============================================ */
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-family: 'Creepster', cursive;
+    font-size: 1.3rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.footer-description {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.footer-logo-small {
+    width: 55px;
+    height: 55px;
+    opacity: 0.3;
+    filter: grayscale(1) brightness(0.5);
+    transition: all 0.3s ease;
+}
+
+.footer-logo-small:hover {
+    opacity: 0.6;
+    filter: grayscale(0) brightness(1);
+}
+
+.footer-logo-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================
+   FOOTER LINKS
+   ============================================ */
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 7px;
+}
+
+.footer-links a {
+    color: #ff9999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+}
+
+.footer-links a::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #8b0000;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    transform: translateX(5px);
+}
+
+.footer-links a:hover::before {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+/* ============================================
+   SOCIAL MEDIA LINKS
+   ============================================ */
+
+/* ============================================
+   FOOTER SOCIAL MEDIA ICONS
+   ============================================ */
+
+.social-link a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-link a:hover {
+    text-decoration: none;
+    color: #ff6b6b;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link {
+    text-decoration: none;
+}
+
+.social-link > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid #4a0000;
+    background: rgba(0, 0, 0, 0.4);
+    color: #cccccc;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.social-link > div img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.social-link:hover > div {
+    border-color: #ff0000;
+    background: rgba(139, 0, 0, 0.2);
+    color: #ff6b6b;
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.social-link:hover > div img {
+    filter: brightness(1.2);
+}
+/* ============================================
+   NEWSLETTER FORM
+   ============================================ */
+
+.footer-newsletter-text {
+    font-size: 0.8rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.newsletter-input {
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #4a0000;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+    color: #666666;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #ff0000;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.newsletter-button {
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #4a0000 0%, #8b0000 100%);
+    border: 2px solid #8b0000;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*
+.newsletter-button:hover {
+    background: linear-gradient(135deg, #8b0000 0%, #ff0000 100%);
+    border-color: #ff0000;
+    transform: translateY(-3px);
+    box-shadow: 
+        0 6px 20px rgba(255, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 0, 0, 0.3);
+}
+*/
+
+/* ============================================
+   FOOTER DIVIDER
+   ============================================ */
+
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b0000, transparent);
+    margin: 40px 0;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ============================================
+   FOOTER BOTTOM SECTION
+   ============================================ */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 25px;
+}
+
+.footer-copyright {
+    text-align: left;
+}
+
+.footer-copyright p {
+    color: #999999;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.footer-subtitle {
+    font-family: 'Metal Mania', cursive;
+    color: #8b0000;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-legal a {
+    color: #999999;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.footer-legal a:hover {
+    color: #ff6b6b;
+}
+
+.footer-separator {
+    color: #4a0000;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .footer-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 60px 20px 25px;
+        margin-top: 80px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+
+    .footer-description,
+    .footer-newsletter-text {
+        font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-skull {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 50px 15px 20px;
+        margin-top: 60px;
+    }
+
+    .footer-top {
+        gap: 30px;
+    }
+
+    .footer-title {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+    }
+
+    .footer-description,
+    .footer-newsletter-text,
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .social-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        font-size: 1.3rem;
+    }
+
+    .newsletter-input,
+    .newsletter-button {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+    }
+
+    .footer-copyright p,
+    .footer-legal a {
+        font-size: 0.85rem;
+    }
+    
+    .footer-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .footer-skull {
+        font-size: 2rem;
+        opacity: 0.05;
+    }
+
+    .footer-skull-left {
+        bottom: 10px;
+        left: 15px;
+    }
+
+    .footer-skull-right {
+        top: 30px;
+        right: 15px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+    .footer-title {
+        font-size: 1.2rem;
+    }
+
+    .footer-legal {
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+}
+
+/* ============================================
+   BOTTOM COPYRIGHT BAR - ULTRA THIN
+   ============================================ */
+
+.bottom-copyright {
+    position: relative;
+    width: 100%;
+    background: #000000;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bottom-copyright-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #4a0000 10%, 
+        #8b0000 30%, 
+        #ff0000 50%, 
+        #8b0000 70%, 
+        #4a0000 90%, 
+        transparent 100%
+    );
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    animation: lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+    0%, 100% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px lab(53.23% 80.11 67.22 / 0.6);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+    }
+}
+
+.bottom-copyright-content {
+    padding: 12px 20px;
+    text-align: center;
+    background: linear-gradient(135deg,53.23% 80.11 67.22 / 0.6, #efe6e6 50%, #c29393 100%);
+}
+
+.bottom-copyright-content p {
+    margin: 0;
+    color: white;
+    font-size: 0.35rem;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+}
+
+.bottom-copyright-content a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-copyright-content a:hover {
+    color: #5904c1;
+    text-shadow: 0 0 8px rgba(51, 11, 111, 0.6);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .bottom-copyright-content {
+        padding: 10px 15px;
+    }
+    
+    .bottom-copyright-content p {
+        font-size: 0.4rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bottom-copyright-content {
+        padding: 8px 10px;
+    }
+    
+    .bottom-copyright-content p {
+        font-size: 0.1rem;
+    }
+}
+
+
+.bottom-copyright-content p {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 1.5px;
+    font-family: Arial, sans-serif;
+}
+
+.bottom-copyright-content a {
+    color: rgba(251, 70, 70, 0.768);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.bottom-copyright-content a:hover {
+    color: #ff6b6b;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+
+/* ============================================
+   SLIM LAYOUT OVERRIDE – LESS MASSIVE DESIGN
+   ============================================ */
+
+/* SECTION SPACING */
+.albums-section {
+    padding: 60px 20px !important;
+}
+
+.albums-container {
+    max-width: 1150px !important;
+}
+
+/* HEADER */
+.albums-header {
+    margin-bottom: 50px !important;
+}
+
+.albums-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+    letter-spacing: 6px !important;
+}
+
+.albums-subtitle {
+    font-size: 1.1rem !important;
+    letter-spacing: 2px !important;
+}
+
+.header-line {
+    width: 140px !important;
+}
+
+/* GRID */
+.albums-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 25px !important;
+}
+
+/* ALBUM CARD */
+.album-card {
+    border-radius: 10px !important;
+}
+
+.album-card:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+}
+
+.album-info {
+    padding: 18px !important;
+}
+
+.album-name {
+    font-size: 1.5rem !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 10px !important;
+}
+
+.album-meta {
+    font-size: 0.9rem !important;
+}
+
+.album-genre {
+    font-size: 0.8rem !important;
+    padding: 4px 12px !important;
+}
+
+/* DETAIL VIEW */
+.detail-header {
+    padding: 30px !important;
+    gap: 30px !important;
+}
+
+.detail-album-title {
+    font-size: clamp(2rem, 3vw, 2.7rem) !important;
+    letter-spacing: 4px !important;
+}
+
+.detail-meta {
+    font-size: 1rem !important;
+}
+
+.album-story {
+    padding: 30px !important;
+    margin-bottom: 40px !important;
+}
+
+.story-title {
+    font-size: 1.6rem !important;
+}
+
+.story-text {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+
+/* TRACKLIST */
+.tracklist-section {
+    padding: 30px !important;
+}
+
+.tracklist-title {
+    font-size: 1.6rem !important;
+}
+
+.track-item {
+    padding: 14px !important;
+    gap: 12px !important;
+}
+
+.track-item:hover {
+    transform: translateX(5px) !important;
+}
+
+.track-number {
+    font-size: 1.2rem !important;
+}
+
+.track-name {
+    font-size: 1rem !important;
+}
+
+.track-duration {
+    font-size: 0.9rem !important;
+}
+
+/* BACK BUTTON */
+.back-button {
+    padding: 10px 18px !important;
+    font-size: 1rem !important;
+}
+
+/* SPOTIFY SECTION */
+.spotify-title {
+    font-size: 1.6rem !important;
+    letter-spacing: 4px !important;
+}
+
+.spotify-coming-text {
+    font-size: 1.4rem !important;
+}
+
+.spotify-coming-sub {
+    font-size: 0.9rem !important;
+}
+
+/* NAVBAR (slightly smaller look) */
+.navbar-content {
+    padding: 12px 30px !important;
+}
+
+.navbar-logo .logo-text {
+    font-size: 1.6rem !important;
+    letter-spacing: 2px !important;
+}
+
+.nav-link {
+    padding: 8px 14px !important;
+    font-size: 0.9rem !important;
+}

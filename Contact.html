@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./contact-style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap" rel="stylesheet">
+    <title>Los Trios - Contact</title>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">
+                <a href="./Index.html" class="logo-text">Los Trios</a>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="./Index.html" class="nav-link">Home</a></li>
+                <li><a href="./Index.html#galerie" class="nav-link">Gallery</a></li>
+                <li><a href="./Songs.html" class="nav-link">Songs</a></li>
+                <li><a href="./Bio.html" class="nav-link">Biography</a></li>
+                <li><a href="./Index.html#news" class="nav-link">News</a></li>
+                <li><a href="./Contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="./Partner.html" class="nav-link">Partner</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <!-- Header -->
+            <div class="contact-header">
+                <h1 class="contact-main-title">Contact</h1>
+                <div class="header-line"></div>
+                <p class="contact-subtitle">Reach out — we don't bite. Usually.</p>
+            </div>
+
+            <!-- Grid: Info + Form -->
+            <div class="contact-grid">
+
+                <!-- Left: Info -->
+                <div class="contact-info">
+
+                    <div class="info-block">
+                        <span class="info-block-icon">📧</span>
+                        <div class="info-block-title">Email</div>
+                        <p class="info-block-text">
+                            For bookings, collaborations, or just to say hello:<br><br>
+                            <a href="mailto:contact@lostrios.ch">contact@lostrios.ch</a>
+                        </p>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-block-icon">🎸</span>
+                        <div class="info-block-title">Booking & Shows</div>
+                        <p class="info-block-text">
+                            Want Los Trios at your event? We welcome every inquiry — reach out directly or use the contact form on the right.
+                        </p>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-block-icon">☠️</span>
+                        <div class="info-block-title">Follow Us</div>
+                        <div class="social-row">
+                            <a href="https://www.instagram.com/lostrios7" target="_blank" class="social-item">
+                                <img src="./Img/Insta.png" alt="Instagram"> Instagram
+                            </a>
+                            <a href="https://www.tiktok.com/@lostrios_band" target="_blank" class="social-item">
+                                <img src="./Img/TikTok.png" alt="TikTok"> TikTok
+                            </a>
+                            <a href="https://www.youtube.com/@LosTrios7" target="_blank" class="social-item">
+                                <img src="./Img/Youtube.png" alt="YouTube"> YouTube
+                            </a>
+                            <a href="https://open.spotify.com/intl-de/artist/42PNTaZH3PRg9yJka15HdF" target="_blank" class="social-item">
+                                <img src="./Img/Spotify.png" alt="Spotify"> Spotify
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Form -->
+                <div class="contact-form-wrap">
+                    <h2 class="form-title">Send a Message</h2>
+                    <p class="form-subtitle">Fields marked with * are required</p>
+
+                    <form class="contact-form" action="#" method="POST">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstname">First Name *</label>
+                                <input class="form-input" type="text" id="firstname" name="firstname" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastname">Last Name *</label>
+                                <input class="form-input" type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email *</label>
+                            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject *</label>
+                            <select class="form-select" id="subject" name="subject" required>
+                                <option value="" disabled selected>Choose a subject...</option>
+                                <option value="booking">🎤 Booking / Show</option>
+                                <option value="collab">🎸 Collaboration</option>
+                                <option value="press">📰 Press / Media</option>
+                                <option value="merch">👕 Merch Inquiry</option>
+                                <option value="fan">❤️ Fan Message</option>
+                                <option value="other">💀 Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message *</label>
+                            <textarea class="form-textarea" id="message" name="message" placeholder="What would you like to tell us?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">⚡ Send Message</button>
+
+                        <p class="form-note">We usually reply within 1–3 business days.</p>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+    <div class="footer-container">
+        
+        <!-- Footer Top Section -->
+        <div class="footer-top">
+            <!-- About Section -->
+            <div class="footer-column">
+                <h3 class="footer-title">Los Trios</h3>
+                <p class="footer-description">
+                    Unleashing dark melodies and crushing riffs since the shadows first spoke. 
+                    Gothic Metal from the depths of darkness.
+                </p>
+                <div class="footer-logo-small">
+                    <img src="./Img/Lostrios_Pleck.png" alt="Los Trios Pick" />
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="./Index.html">Home</a></li>
+                    <li><a href="./Index.html#Galarie">Gallery</a></li>
+                    <li><a href="./Songs.html">Songs</a></li>
+                    <li><a href="#biographie">Biography</a></li>
+                    <li><a href="./Index.html#News">News</a></li>
+                    <li><a href="./Contact.html">Contact</a></li>
+                    <li><a href="./Partner.html">partners</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-column">
+                <h3 class="footer-title">Follow Us</h3>
+                <div class="social-links">
+                    <div class="social-link">
+                        <div class="Spotify_Icon">
+                            <img src="./Img/Spotify.png" alt="Los Trios Pick" />
+                            <a href="https://open.spotify.com/intl-de/artist/42PNTaZH3PRg9yJka15HdF?si=mTQ0R6hRS46simqVmJmf4g" target="_blank">Spotify</a>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <div class="Youtube_Icon">
+                            <img src="./Img/Youtube.png" alt="Los Trios Pick" />
+                            <a href="https://www.youtube.com/@LosTrios7" target="_blank">Youtube</a>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <div class="Insta_Icon">
+                            <img src="./Img/Insta.png" alt="Los Trios Pick" />
+                            <a href="https://www.instagram.com/lostrios7?igsh=MW81bDdreXM4b2owOA==" target="_blank">Instagramm</a>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <div class="TikTok_Icon">
+                            <img src="./Img/TikTok.png" alt="Los Trios Pick" />
+                            <a href="https://www.tiktok.com/@lostrios_band?_r=1&_t=ZN-941j7NXd8a6" target="_blank">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-column">
+                <h3 class="footer-title">Join the Darkness</h3>
+                <p class="footer-newsletter-text">
+                    Subscribe to get the latest news, tour dates, and exclusive content.
+                </p>
+                <form class="newsletter-form">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email..." 
+                        class="newsletter-input"
+                        required
+                    />
+                    
+                    <buttond type="submit" class="newsletter-button">
+                        Comming soon
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider"></div>
+    <div class="bottom-copyright-content">
+        <p>© 2026 Los Trios | Powered / Designed By <a href="https://wendico.ch" target="_blank" rel="noopener">WENDICO</a></p>
+    </div>
+    </div>
+</footer>
+    <script>
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        const navbar = document.querySelector('.navbar');
+        toggle.addEventListener('click', () => navbar.classList.toggle('menu-active'));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1259 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin-top: 70px;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26,0,0,0.98) 0%, rgba(45,0,0,0.98) 50%, rgba(26,0,0,0.98) 100%);
+    border-bottom: 2px solid #4a0000;
+    box-shadow: 0 5px 20px rgba(139,0,0,0.6), inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+.navbar-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.logo-text {
+    text-decoration: none;
+    font-family: 'Metal Mania', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(255,0,0,0.6);
+    animation: logoGlow 3s ease-in-out infinite alternate;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@keyframes logoGlow {
+    0%   { filter: drop-shadow(0 0 8px #ff0000); }
+    100% { filter: drop-shadow(0 0 18px #ff0000); }
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 20px;
+    color: #cccccc;
+    text-decoration: none;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255,0,0,0.8);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: #ff6b6b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+/* ============================================
+   BIO SECTION
+   ============================================ */
+
+.bio-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px 100px;
+}
+
+.bio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bio-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.bio-main-title {
+    font-family: 'Creepster', cursive;
+    font-size: 5rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    text-shadow:
+        4px 4px 8px rgba(0,0,0,0.9),
+        0 0 30px rgba(255,0,0,0.8),
+        0 0 60px rgba(139,0,0,0.6);
+    margin-bottom: 20px;
+    animation: titlePulse 4s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 0 0 30px rgba(255,0,0,0.8), 0 0 60px rgba(139,0,0,0.6);
+    }
+    50% {
+        text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 0 0 50px rgba(255,0,0,1), 0 0 90px rgba(139,0,0,0.8);
+    }
+}
+
+.bio-subtitle {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.4rem;
+    color: #ff6b6b;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+.header-line {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+    margin: 15px auto;
+    box-shadow: 0 0 15px rgba(255,0,0,0.6);
+}
+
+/* ============================================
+   BAND BIO BLOCK
+   ============================================ */
+
+.band-bio-block {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 60px;
+    margin-bottom: 100px;
+    padding: 50px;
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 3px solid #4a0000;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139,0,0,0.4), inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+.band-photo-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #0a0000, #1a0000);
+    border-radius: 15px;
+    border: 3px solid #4a0000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.band-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.band-photo-placeholder.no-image::after {
+    content: '🎸';
+    font-size: 5rem;
+    filter: grayscale(1) brightness(0.3);
+}
+
+.band-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+}
+
+.band-photo-caption {
+    text-align: center;
+    font-family: 'Metal Mania', cursive;
+    color: #666;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-top: 12px;
+}
+
+.band-bio-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.band-bio-title {
+    font-family: 'Creepster', cursive;
+    font-size: 3rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(255,0,0,0.6);
+}
+
+.band-bio-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #cccccc;
+}
+
+.band-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    padding-top: 30px;
+    border-top: 1px solid #4a0000;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-number {
+    font-family: 'Creepster', cursive;
+    font-size: 2.5rem;
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255,0,0,0.7);
+}
+
+.stat-label {
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.85rem;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   MEMBERS SECTION
+   ============================================ */
+
+.members-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.members-title {
+    font-family: 'Creepster', cursive;
+    font-size: 3.5rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 25px rgba(255,0,0,0.7);
+    margin-bottom: 15px;
+}
+
+.members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* ============================================
+   BASE CARD SHARED STYLES
+   ============================================ */
+
+.member-card {
+    background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%);
+    border: 3px solid #4a0000;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(0,0,0,0.4);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(139,0,0,0.03) 40px,
+        rgba(139,0,0,0.03) 80px
+    );
+    pointer-events: none;
+}
+
+.member-card:hover {
+    border-color: #ff0000;
+    box-shadow: 0 15px 50px rgba(255,0,0,0.3), inset 0 0 40px rgba(255,0,0,0.05);
+    transform: translateY(-5px);
+}
+
+/* ============================================
+   TYP A — Bild Links, Info Rechts
+   ============================================ */
+
+.member-card--a {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
+    padding: 45px;
+}
+
+/* ============================================
+   TYP B — Spotlight (Hintergrundbild)
+   ============================================ */
+
+.member-card--b {
+    display: block;
+    min-height: 420px;
+    background-image: var(--member-bg);
+    background-size: cover;
+    background-position: center top;
+    padding: 0;
+}
+
+.member-card-b-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.95) 0%,
+        rgba(20,0,0,0.85) 40%,
+        rgba(0,0,0,0.25) 100%
+    );
+    z-index: 1;
+}
+
+.member-card-b-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "left right"
+        "spotify spotify";
+    gap: 30px 40px;
+    padding: 45px 50px;
+    min-height: 420px;
+}
+
+.member-card-b-left {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+}
+
+.member-card-b-right {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.member-card-b-content > .member-spotify {
+    grid-area: spotify;
+    padding-top: 20px;
+    border-top: 1px solid #4a0000;
+}
+
+.member-name--big {
+    font-size: 4rem;
+    letter-spacing: 8px;
+}
+
+/* ============================================
+   TYP C — Portrait (zwei nebeneinander)
+   ============================================ */
+
+.member-cards-c-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.member-card--c {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 30px 30px 30px;   
+}
+
+/* Name links, Bild rechts */
+.c-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.c-top-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+/* Kleines hochkantes Bild rechts */
+.c-image {
+    position: relative;
+    width: 170px;
+    min-width: 70px;
+    height: 290px;
+    align-self: flex-start;
+    margin-top: -90px;
+    border-radius: 8px;
+    border: 2px solid #4a0000;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0000, #2a0000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s ease;
+}
+
+.member-card--c:hover .c-image {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.c-image .member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.c-image .member-photo-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-image .member-initials {
+    font-family: 'Creepster', cursive;
+    font-size: 1.8rem;
+    color: #4a0000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .member-cards-c-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-card--c {
+        padding: 20px;
+    }
+
+    .c-image {
+        width: 60px;
+        min-width: 60px;
+        height: 80px;
+    }
+}
+
+/* ============================================
+   SHARED MEMBER INFO ELEMENTS
+   ============================================ */
+
+.member-photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.member-photo-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #0a0000, #2a0000);
+    border-radius: 15px;
+    border: 3px solid #4a0000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+}
+
+.member-card:hover .member-photo-placeholder {
+    border-color: #ff0000;
+    box-shadow: 0 0 25px rgba(255,0,0,0.4);
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.member-photo-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0000, #2a0000);
+}
+
+.member-initials {
+    font-family: 'Creepster', cursive;
+    font-size: 5rem;
+    color: #4a0000;
+    text-shadow: 0 0 20px rgba(139,0,0,0.5);
+}
+
+.member-role-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #8b0000, #4a0000);
+    border: 1px solid #ff0000;
+    color: #ff9999;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(255,0,0,0.3);
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.member-nickname {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.1rem;
+    color: #ff6b6b;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+.member-name {
+    font-family: 'Creepster', cursive;
+    font-size: 3rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(255,0,0,0.4);
+    line-height: 1;
+}
+
+.member-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff0000, transparent);
+    margin: 5px 0;
+}
+
+.member-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fact-block {
+    background: rgba(0,0,0,0.4);
+    border-left: 3px solid #8b0000;
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.fact-label {
+    display: block;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.fact-text {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+/* ============================================
+   SPOTIFY MINI PLAYER
+   ============================================ */
+
+.member-spotify {
+    margin-top: 10px;
+}
+
+.spotify-label {
+    display: block;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.9rem;
+    color: #ff6b6b;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.spotify-mini-wrap {
+    border-radius: 14px;
+    padding: 3px;
+    background: linear-gradient(135deg, #8b0000, #ff0000, #4a0000);
+    box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    animation: miniGlow 4s ease-in-out infinite;
+}
+
+@keyframes miniGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
+    50%       { box-shadow: 0 0 35px rgba(255,0,0,0.7); }
+}
+
+.spotify-mini-wrap iframe {
+    display: block;
+    border-radius: 12px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.site-footer {
+    background: linear-gradient(135deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
+    border-top: 2px solid #4a0000;
+    padding: 60px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-title {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.3rem;
+    color: #ff6b6b;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+.footer-description {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.footer-logo-small img {
+    width: 60px;
+    opacity: 0.6;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.footer-links a:hover {
+    color: #ff6b6b;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #4a0000;
+    background: rgba(0,0,0,0.4);
+    color: #cccccc;
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.social-link > div img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0.8);
+}
+
+.social-link:hover > div {
+    border-color: #ff0000;
+    background: rgba(139,0,0,0.2);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255,0,0,0.3);
+}
+
+.social-link a {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+.social-link a:hover {
+    color: #ff6b6b;
+}
+
+.footer-newsletter-text {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-input {
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #4a0000;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255,0,0,0.3);
+}
+
+.newsletter-button {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background: linear-gradient(135deg, #ff0000, #8b0000);
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8b0000, transparent);
+}
+
+.bottom-copyright-content {
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.bottom-copyright-content p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: normal;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1.5px;
+    font-family: Arial, sans-serif;
+}
+
+.bottom-copyright-content a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.bottom-copyright-content a:hover {
+    color: #ff6b6b;
+}
+
+.footer-skull {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.06;
+    top: 30px;
+}
+
+.footer-skull-left  { left: 20px; }
+.footer-skull-right { right: 20px; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .band-bio-block {
+        grid-template-columns: 280px 1fr;
+        gap: 40px;
+        padding: 35px;
+    }
+
+    .member-card--a {
+        grid-template-columns: 240px 1fr;
+        gap: 35px;
+        padding: 35px;
+    }
+
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   MOBILE — Alle Cards exakt im C-Style
+   Foto absolut rechts oben, Name links,
+   Facts + Spotify volle Breite darunter
+   ============================================ */
+
+@media (max-width: 900px) {
+
+    /* C-Row: 1 Spalte */
+    .member-cards-c-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* ══════════════════════════════════════
+       TYPE A — genau wie Type C
+       ══════════════════════════════════════ */
+
+    .member-card--a {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    /* Foto: absolut oben rechts */
+    .member-card--a .member-photo-wrap {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 120px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Badge bei Type A nach links */
+.member-card--a .member-role-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: auto;
+}
+
+    /* Portrait-Format, gleich wie C */
+    .member-card--a .member-photo-placeholder {
+        width: 120px;
+        height: 200px;
+        aspect-ratio: unset;
+        max-width: none;
+        border-radius: 8px;
+        margin: 0;
+        border-width: 2px;
+    }
+
+    /* Info-Block: Nickname + Name kriegen Abstand vom Foto */
+    .member-card--a .member-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        
+    }
+
+    /* Nur Nickname, Name und Divider bekommen rechten Abstand */
+    .member-card--a .member-nickname,
+    .member-card--a .member-name,
+    .member-card--a .member-divider
+     {
+        padding-right: 140px;
+    }
+
+    /* Facts + Spotify: volle Breite */
+.member-card--a .member-facts {
+    margin-top: 90px;
+}
+
+.member-card--a .member-spotify {
+    margin-top: 15px;
+}
+
+/* TYPE A Badge links oben statt unter dem Bild */
+/* TYPE A – Badge links oben */
+.member-card--a .member-role-badge{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: auto;
+    z-index: 3;
+    margin-right: 30px;
+}
+
+/* Foto bleibt rechts */
+.member-card--a .member-photo-wrap{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Text bekommt Platz fürs Foto */
+.member-card--a .member-nickname,
+.member-card--a .member-name,
+.member-card--a .member-divider{
+    padding-right: 140px;
+}
+
+/* Nickname etwas Abstand unter dem Badge */
+.member-card--a .member-nickname{
+    margin-top: 40px;
+}
+    /* ══════════════════════════════════════
+       TYPE B (Lenny) — genau wie Type C
+       ══════════════════════════════════════ */
+
+    .member-card--b {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+        min-height: unset;
+        background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%) !important;
+    }
+
+    /* Portrait aus dem Hintergrundbild — oben rechts wie Type C */
+    .member-card--b::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 120px;
+        height: 200px;
+        background-image: var(--member-bg);
+        background-size: cover;
+        background-position: center top;
+        border-radius: 8px;
+        border: 2px solid #4a0000;
+        transition: border-color 0.3s ease;
+        z-index: 1;
+    }
+
+    .member-card--b:hover::after {
+        border-color: #ff0000;
+        box-shadow: 0 0 15px rgba(255,0,0,0.4);
+    }
+
+    .member-card-b-overlay { display: none; }
+
+    /* Content: Flex-Column, Spotify landet ganz unten */
+    .member-card-b-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+        min-height: unset;
+        position: relative;
+        z-index: 2;
+    }
+
+    .member-card-b-left {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Badge, Nickname, Name, Divider: rechts Abstand fürs Foto */
+    .member-card-b-left .member-role-badge,
+    .member-card-b-left .member-nickname,
+    .member-card-b-left .member-name--big,
+    .member-card-b-left .member-divider {
+        padding-right: 140px;
+        box-sizing: border-box;
+    }
+
+    /* Badge kompakter */
+  /* Badge kompakter */
+.member-card--b .member-role-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+    align-self: flex-start; /* ← Das verhindert das Strecken */
+}
+
+    /* Facts: volle Breite */
+    .member-card-b-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Spotify: ganz unten, volle Breite */
+    .member-card-b-content > .member-spotify {
+        width: 100%;
+        margin-top: 4px;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .member-name--big { font-size: 2.5rem; letter-spacing: 4px; }
+
+    /* ══════════════════════════════════════
+       TYPE C — gleicher Look, Spotify unten
+       ══════════════════════════════════════ */
+
+    .member-card--c {
+        display: flex;
+        flex-direction: column;
+        padding: 45px 20px 20px;
+        gap: 20px;
+        background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #1a0000 100%) !important;
+        border: 3px solid #4a0000 !important;
+    }
+
+    .member-card--c .member-spotify { margin-top: auto; }
+
+    .c-image {
+        width: 120px;
+        min-width: 120px;
+        height: 200px;
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bio-main-title  { font-size: 3rem; letter-spacing: 5px; }
+    .members-title   { font-size: 2.5rem; }
+
+    .band-bio-block {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .band-photo-placeholder {
+        aspect-ratio: 16/9;
+        max-height: 300px;
+    }
+
+    .navbar-content { padding: 12px 20px; }
+
+    .mobile-menu-toggle { display: flex; }
+
+    .navbar-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(26,0,0,0.98), rgba(45,0,0,0.98));
+        border-top: 1px solid #4a0000;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+    }
+
+    .navbar.menu-active .navbar-menu {
+        max-height: 500px;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(74,0,0,0.5);
+        text-align: center;
+    }
+
+    .footer-top { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    /* Alle Cards: schmaleres Foto */
+    .member-card--a .member-photo-wrap {
+        width: 100px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .member-card--a .member-photo-placeholder {
+        width: 100px;
+        height: 165px;
+    }
+
+    .member-card--a .member-nickname,
+    .member-card--a .member-name,
+    .member-card--a .member-divider {
+        padding-right: 118px;
+    }
+
+    .member-card--b::after {
+        width: 100px;
+        height: 165px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .member-card-b-left .member-role-badge,
+    .member-card-b-left .member-nickname,
+    .member-card-b-left .member-name--big,
+    .member-card-b-left .member-divider {
+        padding-right: 118px;
+        margin-bottom: 12px;
+    }
+
+    .c-image {
+        width: 100px;
+        min-width: 100px;
+        height: 165px;
+        margin-top: -50px;
+    }
+
+    .member-card--c {
+        padding: 40px 15px 15px;
+    }
+
+    .member-name--big {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    /* TYPE A: photo-wrap als Positioning-Context entfernen,
+       damit Badge relativ zur Card (nicht zum Foto-Wrap) liegt */
+    .member-card--a .member-photo-wrap {
+        position: static;
+    }
+
+    /* Foto direkt relativ zur Card positionieren */
+    .member-card--a .member-photo-placeholder {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    /* Badge jetzt relativ zur Card → links oben */
+    .member-card--a .member-role-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: auto;
+    }
+
+    /* Nickname: Abstand nach oben, damit er unter dem Badge erscheint */
+    .member-card--a .member-nickname {
+        margin-top: 60px;
+    }
+
+    .member-card--a .member-facts {
+        margin-top: 0px;
+    }
+
+
+}

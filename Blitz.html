@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blitz Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        #lightningCanvas {
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(to bottom, #2c3e50 0%, #34495e 100%);
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .lightning-btn {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .lightning-btn:hover {
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1>⚡ Blitz Animation mit Canvas ⚡</h1>
+    
+    <canvas id="lightningCanvas" width="800" height="500">
+        Dein Browser unterstützt das HTML Canvas Element nicht.
+    </canvas>
+    
+    <div class="controls">
+        <button onclick="createLightning()" class="lightning-btn">Neuer Blitz</button>
+        <button onclick="startContinuousLightning()">Blitz-Sturm</button>
+        <button onclick="stopLightning()">Stop</button>
+        <button onclick="clearCanvas()">Löschen</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('lightningCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationId;
+        let lightningInterval;
+
+        // Blitz-Klasse
+        class Lightning {
+            constructor(startX, startY, endX, endY) {
+                this.segments = [];
+                this.opacity = 1;
+                // ANPASSBAR: Wie schnell der Blitz verschwindet (0.01 = langsam, 0.1 = schnell)
+                this.fadeRate = 0.04;
+                
+                // ANPASSBAR: Dicke des Blitzes
+                this.thickness = Math.random() * 4 + 3; // 3-7px (war 2-5px)
+                
+                this.color = this.getRandomColor();
+                this.generatePath(startX, startY, endX, endY);
+            }
+
+            getRandomColor() {
+                // ANPASSBAR: Blitz-Farben hier ändern
+                const colors = [
+                    '#FFFFFF',    // Weiß
+                    '#E6F3FF',    // Helles Blau-Weiß  
+                    '#CCE7FF',    // Blau-Weiß
+                    '#B3DBFF',    // Helles Blau
+                    '#FFFF99',    // Helles Gelb
+                    '#FFFFCC',    // Cremiges Gelb
+                    '#FF99FF',    // Lila (NEU)
+                    '#99FFFF'     // Cyan (NEU)
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            generatePath(startX, startY, endX, endY) {
+                const segments = [];
+                
+                // ANPASSBAR: Anzahl Segmente (mehr = eckiger)
+                const numSegments = 12 + Math.floor(Math.random() * 8); // 12-20 Segmente
+                
+                let currentX = startX;
+                let currentY = startY;
+                segments.push({ x: currentX, y: currentY });
+                
+                for (let i = 1; i < numSegments; i++) {
+                    const progress = i / numSegments;
+                    
+                    // ANPASSBAR: Eckigkeit des Blitzes (höhere Werte = eckiger)
+                    const zigzagStrength = 80; // War 50, jetzt 80 für mehr Zickzack
+                    const verticalVariation = 30; // Vertikale Zufälligkeit
+                    
+                    // Starke horizontale Abweichungen für Zickzack-Effekt
+                    const baseX = startX + (endX - startX) * progress;
+                    const baseY = startY + (endY - startY) * progress;
+                    
+                    // Aggressive Zickzack-Bewegung
+                    const randomOffsetX = (Math.random() - 0.5) * zigzagStrength;
+                    const randomOffsetY = (Math.random() - 0.5) * verticalVariation;
+                    
+                    currentX = baseX + randomOffsetX;
+                    currentY = baseY + randomOffsetY;
+                    
+                    segments.push({ x: currentX, y: currentY });
+                }
+                
+                // Endpunkt exakt setzen
+                segments.push({ x: endX, y: endY });
+                this.segments = segments;
+                
+                // ANPASSBAR: Verzweigungen (mehr für komplexere Blitze)
+                this.branches = [];
+                for (let i = 3; i < segments.length - 3; i++) {
+                    // ANPASSBAR: Wahrscheinlichkeit für Verzweigungen (0.0 - 1.0)
+                    if (Math.random() < 0.4) { // 40% Chance (war 30%)
+                        this.createBranch(segments[i], i / segments.length);
+                    }
+                }
+            }
+
+            createBranch(startPoint, progress) {
+                // ANPASSBAR: Länge der Äste
+                const branchLength = 40 + Math.random() * 80; // Längere Äste
+                
+                // ANPASSBAR: Winkel der Äste (-180° bis +180°)
+                const angle = (Math.random() - 0.5) * Math.PI; // Breiterer Winkelbereich
+                
+                const endX = startPoint.x + Math.cos(angle) * branchLength;
+                const endY = startPoint.y + Math.sin(angle) * branchLength;
+                
+                const branchSegments = [];
+                // ANPASSBAR: Segmente pro Ast (mehr = detaillierter)
+                const numBranchSegments = 4 + Math.floor(Math.random() * 6);
+                
+                for (let i = 0; i <= numBranchSegments; i++) {
+                    const branchProgress = i / numBranchSegments;
+                    // ANPASSBAR: Zickzack-Stärke der Äste
+                    const x = startPoint.x + (endX - startPoint.x) * branchProgress + (Math.random() - 0.5) * 30;
+                    const y = startPoint.y + (endY - startPoint.y) * branchProgress + (Math.random() - 0.5) * 15;
+                    
+                    branchSegments.push({ x, y });
+                }
+                
+                this.branches.push({
+                    segments: branchSegments,
+                    // ANPASSBAR: Dicke der Äste im Verhältnis zum Hauptblitz
+                    thickness: this.thickness * 0.5 // War 0.6, jetzt dünner
+                });
+            }
+
+            draw() {
+                if (this.opacity <= 0) return false;
+
+                // Hauptblitz zeichnen
+                this.drawLightningPath(this.segments, this.thickness);
+                
+                // Verzweigungen zeichnen
+                this.branches.forEach(branch => {
+                    this.drawLightningPath(branch.segments, branch.thickness);
+                });
+
+                // Glüheffekt
+                this.drawGlow();
+
+                this.opacity -= this.fadeRate;
+                return this.opacity > 0;
+            }
+
+            drawLightningPath(segments, thickness) {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = thickness;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                
+                ctx.beginPath();
+                ctx.moveTo(segments[0].x, segments[0].y);
+                
+                for (let i = 1; i < segments.length; i++) {
+                    ctx.lineTo(segments[i].x, segments[i].y);
+                }
+                
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            drawGlow() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity * 0.3;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = this.thickness * 3;
+                ctx.lineCap = 'round';
+                ctx.shadowColor = this.color;
+                ctx.shadowBlur = 20;
+                
+                ctx.beginPath();
+                ctx.moveTo(this.segments[0].x, this.segments[0].y);
+                
+                for (let i = 1; i < this.segments.length; i++) {
+                    ctx.lineTo(this.segments[i].x, this.segments[i].y);
+                }
+                
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        let lightnings = [];
+
+        function createLightning() {
+            // Zufällige Start- und Endpunkte
+            const startX = Math.random() * canvas.width;
+            const startY = 0;
+            const endX = Math.random() * canvas.width;
+            const endY = canvas.height;
+            
+            const lightning = new Lightning(startX, startY, endX, endY);
+            lightnings.push(lightning);
+            
+            // Kurzer Blitzeffekt für den Hintergrund
+            flashBackground();
+        }
+
+        function flashBackground() {
+            const originalBackground = canvas.style.background;
+            canvas.style.background = 'rgba(255, 255, 255, 0.1)';
+            
+            setTimeout(() => {
+                canvas.style.background = originalBackground;
+            }, 100);
+        }
+
+        function animate() {
+            // Canvas leeren
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Alle Blitze zeichnen und verblasste entfernen
+            lightnings = lightnings.filter(lightning => lightning.draw());
+            
+            animationId = requestAnimationFrame(animate);
+        }
+
+        function startContinuousLightning() {
+            stopLightning(); // Vorherigen Sturm stoppen
+            
+            lightningInterval = setInterval(() => {
+                createLightning();
+                
+                // Gelegentlich mehrere Blitze gleichzeitig
+                if (Math.random() < 0.3) {
+                    setTimeout(createLightning, 50 + Math.random() * 100);
+                }
+            }, 500 + Math.random() * 1000);
+        }
+
+        function stopLightning() {
+            if (lightningInterval) {
+                clearInterval(lightningInterval);
+                lightningInterval = null;
+            }
+        }
+
+        function clearCanvas() {
+            lightnings = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Animation starten
+        animate();
+
+        // Klick auf Canvas für Blitz
+        canvas.addEventListener('click', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Blitz von oben zum Klickpunkt
+            const lightning = new Lightning(x + (Math.random() - 0.5) * 100, 0, x, y);
+            lightnings.push(lightning);
+            flashBackground();
+        });
+
+        // Automatischer Start-Blitz
+        setTimeout(createLightning, 1000);
+    </script>
+</body>
+</html>
