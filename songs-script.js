@@ -18,8 +18,6 @@ tracks: [
     { number: 1, name: "Drogs in Mexico", duration: "4:23" },
     { number: 2, name: "Fuck yeah", duration: "4.31" },
     { number: 3, name: "Gun On The Ground", duration: "5.19" },
-    { number: 4, name: "Rock out", duration: "Comming soon" },
-    { number: 5, name: "Tequila Love", duration: "Comming soon" },
 ],
 spotifyEmbed: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/21lmtqKdaTCLBWHvNnamf8?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
     },
