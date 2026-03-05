@@ -974,3 +974,4 @@ logoStyle.textContent = `
     }
 `;
 document.head.appendChild(logoStyle);
+

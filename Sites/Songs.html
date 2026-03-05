@@ -3,33 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./songs-style.css" />
+    <link rel="stylesheet" href="../css/songs-style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Creepster&display=swap" rel="stylesheet">
     <title>Los Trios - Albums & Songs</title>
 </head>
 <body>
      <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="navbar-content">
-      <div class="navbar-logo">
-        <span class="logo-text"><a href="./index.html">Los Trios</a></span>
-      </div>
-      <ul class="navbar-menu">
-        <li><a href="./index.html" class="nav-link">Home</a></li>
-        <li><a href="./index.html#galerie" class="nav-link">Galerie</a></li>
-        <li><a href="./Songs.html" class="nav-link active">Songs</a></li>
-        <li><a href="./Bio.html" class="nav-link">Biographie</a></li>
-        <li><a href="./index.html#news" class="nav-link">News</a></li>
-        <li><a href="./Contact.html" class="nav-link">Contact</a></li>
-        <li><a href="./Partner.html" class="nav-link">Partner</a></li>
-      </ul>
-      <div class="mobile-menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+    <div id="navbar"></div>
 
     <!-- ALBUMS OVERVIEW SECTION -->
     <div class="albums-section" id="albums-overview">
@@ -48,7 +28,7 @@
                 <div class="album-card" data-album="overdose">
                     <div class="album-cover">
                         <div class="album-placeholder">
-                            <img src="./Img/Overdoese_of_Everything.jpeg" alt="Overdose of Everything Album Cover" class="album-cover-img">
+                            <img src="../Img/Songs/Overdoese_of_Everything.jpeg" alt="Overdose of Everything Album Cover" class="album-cover-img">
                             <div class="album-year">2025</div>
                         </div>
                         <div class="album-overlay">
@@ -105,7 +85,7 @@
                 <div class="detail-cover">
                     <div class="detail-cover-placeholder">
 <div>
-    <img src="./Img/Overdoese_of_Everything.jpeg" alt="Overdose of Everything Album Cover" class="album-cover-img">
+    <img src="../Img/Songs/Overdoese_of_Everything.jpeg" alt="Overdose of Everything Album Cover" class="album-cover-img">
 </div>
                     </div>
                 </div>
@@ -153,98 +133,12 @@
         </div>
     </div>
 
-    <script src="songs-script.js"></script>
+    <script src="../scripts/songs-script.js"></script>
 
 
   
-<footer class="site-footer">
-    <div class="footer-container">
-        
-        <!-- Footer Top Section -->
-        <div class="footer-top">
-            <!-- About Section -->
-            <div class="footer-column">
-                <h3 class="footer-title">Los Trios</h3>
-                <p class="footer-description">
-                    Unleashing dark melodies and crushing riffs since the shadows first spoke. 
-                    Gothic Metal from the depths of darkness.
-                </p>
-                <div class="footer-logo-small">
-                    <img src="./Img/Lostrios_Pleck.png" alt="Los Trios Pick" />
-                </div>
-            </div>
+    <div id="footer"></div>
 
-            <!-- Quick Links -->
-            <div class="footer-column">
-                <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#galerie">Gallery</a></li>
-                    <li><a href="./Songs.html">Songs</a></li>
-                    <li><a href="#biographie">Biography</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="./Contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Media -->
-            <div class="footer-column">
-                <h3 class="footer-title">Follow Us</h3>
-                <div class="social-links">
-                    <div class="social-link">
-                        <div class="Spotify_Icon">
-                            <img src="./Img/Spotify.png" alt="Los Trios Pick" />
-                            <a href="https://open.spotify.com/intl-de/artist/42PNTaZH3PRg9yJka15HdF?si=mTQ0R6hRS46simqVmJmf4g" target="_blank">Spotify</a>
-                        </div>
-                    </div>
-                    <div class="social-link">
-                        <div class="Youtube_Icon">
-                            <img src="./Img/Youtube.png" alt="Los Trios Pick" />
-                            <a href="https://www.youtube.com/@LosTrios7" target="_blank">Youtube</a>
-                        </div>
-                    </div>
-                    <div class="social-link">
-                        <div class="Insta_Icon">
-                            <img src="./Img/Insta.png" alt="Los Trios Pick" />
-                            <a href="https://www.instagram.com/lostrios7?igsh=MW81bDdreXM4b2owOA==" target="_blank">Instagramm</a>
-                        </div>
-                    </div>
-                    <div class="social-link">
-                        <div class="TikTok_Icon">
-                            <img src="./Img/TikTok.png" alt="Los Trios Pick" />
-                            <a href="https://www.tiktok.com/@lostrios_band?_r=1&_t=ZN-941j7NXd8a6" target="_blank">TikTok</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Newsletter -->
-            <div class="footer-column">
-                <h3 class="footer-title">Join the Darkness</h3>
-                <p class="footer-newsletter-text">
-                    Subscribe to get the latest news, tour dates, and exclusive content.
-                </p>
-                <form class="newsletter-form">
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email..." 
-                        class="newsletter-input"
-                        required
-                    />
-                    
-                    <buttond type="submit" class="newsletter-button">
-                        Comming soon
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Footer Divider -->
-        <div class="footer-divider"></div>
-    <div class="bottom-copyright-content">
-        <p>© 2026 Los Trios | Powered / Designed By <a href="https://wendico.ch" target="_blank" rel="noopener">WENDICO</a></p>
-    </div>
-    </div>
-</footer>
+    <script src="/scripts/layout.js"></script>
 </body>
 </html>

@@ -3,33 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,700&display=swap" rel="stylesheet">
     <title>Los Trios</title>
 </head>
 <body class="body">
   <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="navbar-content">
-      <div class="navbar-logo">
-        <span class="logo-text">Los Trios</span>
-      </div>
-      <ul class="navbar-menu">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#galerie" class="nav-link">Galerie</a></li>
-        <li><a href="./Songs.html" class="nav-link">Songs</a></li>
-        <li><a href="./Bio.html" class="nav-link">Biographie</a></li>
-        <li><a href="#news" class="nav-link">News</a></li>
-        <li><a href="./Contact.html" class="nav-link">Contact</a></li>
-        <li><a href="./Partner.html" class="nav-link">Partner</a></li>
-      </ul>
-      <div class="mobile-menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+  <div id="navbar"></div>
 
   <!-- Monster im Hintergrund - nur bei Blitzen sichtbar -->
     <div class="monster-background">
@@ -107,12 +87,12 @@
                         <p class="news-description">
                         On October 22nd, we dropped our debut album. With the support of Acces Audio Production, we brought our first 3 singles to Spotify for the world to hear.
                         </p>
-                    <a href="./Songs.html" class="news-link">Read More →</a>
+                    <a href="./Sites/soon.html" class="news-link">Read More →</a>
                 </div>
             </div>
             <div class="news-item">
                 <div class="news-image-container">
-                    <img src="./Img/Tour.jpg" alt="European Tour 2026" class="news-image">
+                    <img src="./Img/Gallery/Live/Tour.jpg" alt="European Tour 2026" class="news-image">
                 <div class="news-image-overlay">
                 <span class="news-category">TOUR</span>
             </div>
@@ -122,14 +102,16 @@
                     <h3 class="news-title">European Tour 2026 Dates Released</h3>
                     <p class="news-description">
                     Schön wärs nieri, wie wenn eus öpper würi lose🥲
+
+                    Jaja. Aber machend ma e news html site wo alli news sind. Da bliebed eifach die neuste news wie jz grad
                     </p>
-                <a href="#" class="news-link">Read More →</a>
+                <a href="./Sites/soon.html" class="news-link">Read More →</a>
             </div>
             </div>
 
                 <div class="news-item">
                     <div class="news-image-container">
-                    <img src="./Img/Acces_Audio.png" alt="Studio Sessions" class="news-image news-image--studio">
+                    <img src="./Img/Partner/Acces_Audio.png" alt="Studio Sessions" class="news-image news-image--studio">
                         <div class="news-image-overlay">
                         </div>
                     </div>
@@ -137,10 +119,9 @@
                         <div class="news-date">16.08.2025</div>
                         <h3 class="news-title">Behind The Scenes: Studio Sessions</h3>
                         <p class="news-description">
-                            Mösst mer no Aluege aber ich han dänkt wär e cooli idee wenmer so Paar Fotene oder Videos vom Studio da anne dönd.
-                            So chli Behind the Scenes mässig.
+                            Bobby. Ich wäri für e Studio html site. wo chli übers sudio und de raphi staht. mit paar fotene
                        </p>
-                        <a href="https://www.access-productions.ch/" target="_blank" class="news-link">Read More →</a>
+                        <a href="./Sites/soon.html" target="_blank" class="news-link">Read More →</a>
                         </div>
                     </div>
                 </div>
@@ -187,7 +168,7 @@
                  data-category="live"
                  data-order-all="1"
                  data-order-live="1">
-                <img src="./Img/Walhof_BandFoto.jpg" alt="Los Trios Band" class="gallery-img">
+                <img src="./Img/Gallery/Live/Walhof_BandFoto.jpg" alt="Los Trios Band" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Los Trios Live</h3>
@@ -219,7 +200,7 @@
                  data-category="studio"
                  data-order-all="3"
                  data-order-studio="1">
-                <img src="./Img/Studio1.JPG" alt="Studio Session" class="gallery-img">
+                <img src="./Img/Gallery/Studio/Studio1.JPG" alt="Studio Session" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Recording Session</h3>
@@ -232,7 +213,7 @@
                  data-category="live"
                  data-order-all="4"
                  data-order-live="4">
-                <img src="./Img/4_Januar_Hochkant.jpg" alt="Los Trios Portrait" class="gallery-img">
+                <img src="./Img/Gallery/Live/4_Januar_Hochkant.jpg" alt="Los Trios Portrait" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Los Trios Gig</h3>
@@ -246,7 +227,7 @@
                  data-category="live"
                  data-order-all="5"
                  data-order-live="6">
-                <img src="./Img/Schöne_Ibanez2.jpg" alt="Ibanez Guitar" class="gallery-img">
+                <img src="./Img/Gallery/Live/Schöne_Ibanez2.jpg" alt="Ibanez Guitar" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Beautiful Ibanez</h3>
@@ -260,7 +241,7 @@
                  data-category="studio"
                  data-order-all="6"
                  data-order-studio="3">
-                <img src="./Img/Studio2.JPG" alt="Schöne Ibanez Gitarre" class="gallery-img">
+                <img src="./Img/Gallery/Studio/Studio2.JPG" alt="Schöne Ibanez Gitarre" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Studio</h3>
@@ -276,7 +257,7 @@
                  data-category="live"
                  data-order-all="7"
                  data-order-live="5">
-                <img src="./Img/4_Januar_Band.jpg" alt="Los Trios 4. Januar" class="gallery-img">
+                <img src="./Img/Gallery/Live/Tour.jpg" alt="Los Trios 4. Januar" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">4. Januar Show</h3>
@@ -291,7 +272,7 @@
                  data-category="backstage"
                  data-order-all="8"
                  data-order-backstage="2">
-                <img src="./Img/Waldhof_Lostrios.jpg" alt="Backstage Los Trios" class="gallery-img">
+                <img src="./Img/Gallery/Backstage/Waldhof_Lostrios.jpg" alt="Backstage Los Trios" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Before the Show</h3>
@@ -305,7 +286,7 @@
                  data-category="live"
                  data-order-all="9"
                  data-order-studio="5">
-                <img src="./Img/Schöne_Ibanez1.jpg" alt="Schöne Ibanez Gitarre" class="gallery-img">
+                <img src="./Img/Gallery/Live/Schöne_Ibanez1.jpg" alt="Schöne Ibanez Gitarre" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">Again Beautiful Ibanez</h3>
@@ -319,7 +300,7 @@
                  data-category="live"
                  data-order-all="10"
                  data-order-live="2">
-                <img src="./Img/Tour.jpg" alt="Los Trios Tour" class="gallery-img">
+                <img src="./Img/Gallery/Live/Tour.jpg" alt="Los Trios Tour" class="gallery-img">
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3 class="gallery-item-title">On Tour</h3>
@@ -340,97 +321,9 @@
 </div>
 
 <!-- FOOTER SECTION - Add this before closing </body> tag in index.html -->
-<footer class="site-footer">
-    <div class="footer-container">
-        
-        <!-- Footer Top Section -->
-        <div class="footer-top">
-            <!-- About Section -->
-            <div class="footer-column">
-                <h3 class="footer-title">Los Trios</h3>
-                <p class="footer-description">
-                    Unleashing dark melodies and crushing riffs since the shadows first spoke. 
-                    Gothic Metal from the depths of darkness.
-                </p>
-                <div class="footer-logo-small">
-                    <img src="./Img/Lostrios_Pleck.png" alt="Los Trios Pick" />
-                </div>
-            </div>
+<div id="footer"></div>
 
-            <!-- Quick Links -->
-            <div class="footer-column">
-                <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#Galarie">Gallery</a></li>
-                    <li><a href="./Songs.html">Songs</a></li>
-                    <li><a href="#biographie">Biography</a></li>
-                    <li><a href="./index.html#News">News</a></li>
-                    <li><a href="./Contact.html">Contact</a></li>
-                    <li><a href="./Partner.html">partners</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Media -->
-            <div class="footer-column">
-                <h3 class="footer-title">Follow Us</h3>
-                <div class="social-links">
-                    <div class="social-link">
-                        <div class="Spotify_Icon">
-                            <img src="./Img/Spotify.png" alt="Los Trios Pick" />
-                            <a href="https://open.spotify.com/intl-de/artist/42PNTaZH3PRg9yJka15HdF?si=mTQ0R6hRS46simqVmJmf4g" target="_blank">Spotify</a>
-                        </div>
-                    </div>
-                    <div class="social-link">
-                        <div class="Youtube_Icon">
-                            <img src="./Img/Youtube.png" alt="Los Trios Pick" />
-                            <a href="https://www.youtube.com/@LosTrios7" target="_blank">Youtube</a>
-                        </div>
-                    </div>
-                    <div class="social-link">
-                        <div class="Insta_Icon">
-                            <img src="./Img/Insta.png" alt="Los Trios Pick" />
-                            <a href="https://www.instagram.com/lostrios7?igsh=MW81bDdreXM4b2owOA==" target="_blank">Instagramm</a>
-                        </div>
-                    </div>
-                    <div class="social-link">
-                        <div class="TikTok_Icon">
-                            <img src="./Img/TikTok.png" alt="Los Trios Pick" />
-                            <a href="https://www.tiktok.com/@lostrios_band?_r=1&_t=ZN-941j7NXd8a6" target="_blank">TikTok</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Newsletter -->
-            <div class="footer-column">
-                <h3 class="footer-title">Join the Darkness</h3>
-                <p class="footer-newsletter-text">
-                    Subscribe to get the latest news, tour dates, and exclusive content.
-                </p>
-                <form class="newsletter-form">
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email..." 
-                        class="newsletter-input"
-                        required
-                    />
-                    
-                    <buttond type="submit" class="newsletter-button">
-                        Comming soon
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Footer Divider -->
-        <div class="footer-divider"></div>
-    <div class="bottom-copyright-content">
-        <p>© 2026 Los Trios | Powered / Designed By <a href="https://wendico.ch" target="_blank" rel="noopener">WENDICO</a></p>
-    </div>
-    </div>
-</footer>
-
-<script src="script.js"></script>
+<script src="./scripts/script.js"></script>
+<script src="/scripts/layout.js"></script>
 </body>
 </html>
